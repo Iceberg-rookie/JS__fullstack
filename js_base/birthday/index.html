@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+            overflow: hidden;
+            color: #fff;
+            -webkit-perspective: 1000;
+            perspective: 1000;
+            background-color: #444444;
+            background-image: -webkit-repeating-linear-gradient(top,#444444,#999999);
+        }
+        .book{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -150px;
+            -webkit-transform: rotateX(60deg);
+            transform: rotateX(60deg);
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .page{
+            width: 300px;
+            height: 300px;
+            padding: 1em;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-indent: 2em;
+            overflow: hidden;
+        }
+        .front{
+            background-color: #d93e2b;
+        }
+        .back{
+            background-color: #fff;
+        }
+        .front-cover{
+            cursor: move;
+            transform: rotateY(0deg);
+            transform-origin: 0 50%;
+        }
+        .front-cover .back{
+            background-image: url(./img/1.png);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            transform: translateZ(3px);
+        } 
+        .book-cover .back{
+            transform: translateZ(-3px);
+        }
+        .p3d{
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+        .flip{
+            transform: rotateY(180deg);
+        }
+        .shadow,.dino{
+            width: 190px;
+            height: 190px;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            transform-origin: 0 100%;
+        }
+        .dino{
+            background-image: url(./img/1.jpg);
+            background-size: cover;
+        }
+        .shadow{
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="book p3d">
+        <!-- 右半边书 -->
+        <div class="book-cover p3d">
+            <div class="page back flip"></div>
+            <div class="page front p3d"></div>
+            <div class="shadow"></div>
+            <div class="dino"></div>
+        </div>
+        <!-- 左半边书 -->
+        <div class="front-cover p3d">
+            <div class="page front flip p3d">
+                <h2 style="text-align: center;">严&nbsp文&nbsp琪</h2><br>
+                <p>这个世界很大</p>
+                <p>如果我们没有缘分</p>
+                <p>我也不会遇见你</p>
+                <p>既然让我遇见了爱上了</p>
+                <p>别人再好再优秀</p>
+                <p>跟我都没有关系</p>
+                <p>因为在我心里</p>
+                <p>最好的那个人</p>
+                <p>就是你</p>
+            </div>
+            <div class="page back"></div>
+        </div>
+    </div>
+
+    <script>
+        (function(window, document) {
+          var prefiex = ['webkit', 'Moz', 'ms', 'o']
+                book =  document.querySelectorAll('.book')[0],
+                page = document.querySelectorAll('.front-cover')[0],
+                dino = document.querySelectorAll('.dino')[0], 
+                shadow = document.querySelectorAll('.shadow')[0], 
+                centerPoint = window.innerWidth / 2,
+                hold = false;
+                clamp = function(val, min, max) {
+                    return Math.max(min, Math.min(val, max))
+                },
+                pageSize = 300;
+
+        // 鼠标摁下的事件
+        page.onmousedown = function() {
+            hold = true
+        }
+
+        // 鼠标放开的事件
+        window.onmouseup = function() {
+            if(hold) {
+                hold = false
+            }
+        }
+
+        // 在窗口调整大小的时候执行的事件
+        window.onresize = function() {
+            centerPoint = window.innerWidth / 2
+        }
+
+        // 鼠标移动时候执行的事件
+        window.onmousemove = function(event) {
+            if(!hold) {
+                return;
+            }
+            var angle = clamp((centerPoint - event.pageX + pageSize) / pageSize * -90, -180, 0),
+                i, j;
+            
+
+            for(i = 0, j = prefiex.length; i < j; i++) {
+                // page.style[prefiex[i] + 'Transform'] = 'rotateY(' + angle + ' deg)';
+                page.style[prefiex[i] + 'Transform'] = `rotateY(${angle}deg)`;
+                dino.style[prefiex[i] + 'Transform'] = `rotateX(${angle / 2}deg)`;
+                book.style[prefiex[i] + 'Transform'] = `rotateX(${60 + angle / 8}deg)`;
+                shadow.style[prefiex[i] + 'Transform'] = `translateZ(1px) skewX(${angle / 8}deg)`;
+            }
+        }
+
+        })(window, document)
+    </script>
+</body>
+</html>
