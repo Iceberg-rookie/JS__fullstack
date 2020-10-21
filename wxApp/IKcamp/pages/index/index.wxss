@@ -1,0 +1,30 @@
+/* pages/index/index.wxss */
+page {
+  height: 150%;
+}
+.group-bar {
+  padding: 5px;
+  position: absolute;
+  left: 45%;
+}
+.group-title {
+  width: 71px;
+  height: 21px;
+}
+.group-content {
+  padding: 30px;
+}
+.group-content-item {
+  display: block;
+  width: 357px;
+  height: 116px;
+}
+.group-content-item-desc {
+  float: left;
+}
+.group-content-item-img {
+  float: right;
+  padding-right: 30px;
+  width: 130px;
+  height: 97px;
+}
