@@ -1,6 +1,6 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
-const env = 'lm-lesson'
+const env = 'lrz-7gdu2vxl1622bc9f'
 
 cloud.init()
 const db = cloud.database({ env }) // 指明云函数生效的环境
