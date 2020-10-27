@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* , +, space, > */
+    /* li + li::before {
+      content: '|'; 
+    } */
+    /* ul 直接子元素 li  */
+    /* ul > li {
+
+    } */
+    li:nth-child(2) ~ li {
+      color: red;
+    }
+    /* 
+      优先级
+      id:
+      class:
+      tag:  div li
+      attr: [type="text"]
+    */
+    /* 
+    优先级
+    !important:         1-0-0-0-0
+    行内:                 1-0-0-0
+    id:                     1-0-0
+    attr: , class:          0-1-0
+    tag:                    0-0-1
+    */
+    /* 0-1-0 + 0-1-0 + 0-1-0, 0-10-0 不进位
+    .cls.cls2.cls3 {} */
+    #id { color: red;}
+    .cls { color: green;}
+  </style>
+</head>
+<body>
+  <ul>
+    <li id="id" class="cls">MIUI
+      <li>1</li>
+    </li>
+    <li>MIU
+      <li>2</li>
+      <span>3</span>
+    </li>
+    <li>MU</li>
+  </ul>
+</body>
+</html>
