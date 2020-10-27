@@ -23,7 +23,7 @@ App({
         if (settingRes.authSetting['scope.userInfo']) {
           wx.getUserInfo({ // 获取用户信息
             success(infoRes) {
-              console.log(infoRes);
+              // console.log(infoRes);
               self.globalData.userInfo = infoRes.userInfo
               wx.cloud.callFunction({
                 name: 'createUser',
