@@ -25,10 +25,9 @@
   font-size: 30rpx;
   color: #42BD55;
 }
-.title-right .arraw {
+.title-right .arrow {
   width: 12rpx;
   height: 12rpx;
-  color: #42BD55;
   border: 1 solid #42BD55;
   border-top: none;
   border-left: none;
