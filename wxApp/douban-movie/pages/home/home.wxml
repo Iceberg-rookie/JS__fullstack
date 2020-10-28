@@ -1,0 +1,5 @@
+<!--pages/home/home.wxml-->
+<nav-bar title="首页" statusBarColor="#42BD55" navBarColor="#42BD55" titleColor="#fff"></nav-bar>
+<view>
+  <mp-searchBar></mp-searchBar>
+</view>

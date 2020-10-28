@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+  "nav-bar": "/component/nav-bar/nav-bar",
+  "mp-searchBar": "/miniprogram_npm/weui-miniprogram/searchbar/searchbar"
+}
+}
