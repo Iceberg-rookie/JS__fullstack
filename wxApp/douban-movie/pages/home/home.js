@@ -5,14 +5,50 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    allMovies: [
+      {
+        title: "院线热映",
+        url: "/v2/movie/in_theaters",
+        movies: []
+      },
+      {
+        title: "新片榜",
+        url: "/v2/movie/new_movies",
+        movies: []
+      },
+      {
+        title: "口碑榜",
+        url: "/v2/movie/weekly",
+        movies: []
+      },
+      {
+        title: "北美票房榜",
+        url: "/v2/movie/us_box",
+        movies: []
+      },
+      {
+        title: "Top250",
+        url: "/v2/movie/top250",
+        movies: []
+      }
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCity()
+    this.getCity((city) => {
+      this.loadData(0, {})
+    })
+  },
+
+  loadData(idx, params) {
+    let obj = this.data.allMovies[idx]
+    let url = wx.db.url(obj.url)
+    wx.request({
+      url: 'url',
+    })
   },
 
   getCity(succeed) {
@@ -35,6 +71,11 @@ Page({
             // 拿豆瓣的api地址做接口请求
             // 将获取到的城市名传给豆瓣api
             // 拿到当前城市热映电影数据
+            let city = res.data.result.addressComponent.city
+            succeed && succeed(city)
+          },
+          fail: (err) => {
+            console.log(err);
           }
         })
       }
