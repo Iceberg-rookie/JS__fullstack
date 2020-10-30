@@ -39,16 +39,42 @@ Page({
    */
   onLoad: function (options) {
     this.getCity((city) => {
-      this.loadData(0, {})
+      this.loadData(0, { city: city, apikey: '0df993c66c0c636e29ecbb5344252a4a'})
     })
+    this.loadData(1, {apikey:'0df993c66c0c636e29ecbb5344252a4a'})
+    this.loadData(2, {apikey:'0df993c66c0c636e29ecbb5344252a4a'})
+    this.loadData(3, {apikey:'0df993c66c0c636e29ecbb5344252a4a'})
+    this.loadData(4, {apikey:'0df993c66c0c636e29ecbb5344252a4a'})
   },
 
   loadData(idx, params) {
     let obj = this.data.allMovies[idx]
     let url = wx.db.url(obj.url)
     wx.request({
-      url: 'url',
+      url: url,
+      data: params,
+      header: {'content-type': 'json'},
+      success: (res) => {
+        console.log(res);
+        let movies = res.data.subjects
+        obj.movies = []
+        for (let i = 0; i < movies.length; i++) {
+          let element = movies[i]
+          let movie = element.subject || element
+          // 格式化星星
+          this.updateMovie(movie)
+          obj.movies.push(movie)
+        }
+        this.getData(this.data)
+      }
     })
+  },
+
+  updateMovie(movie) {
+    if (!movie.rating.stars) {
+      return
+    }
+    movie.numberStars = parseInt(movie.rating.stars)
   },
 
   getCity(succeed) {
@@ -67,7 +93,7 @@ Page({
             location: `${res.latitude}, ${res.longitude}`
           },
           success: (res) => {
-            console.log(res);
+            // console.log(res);
             // 拿豆瓣的api地址做接口请求
             // 将获取到的城市名传给豆瓣api
             // 拿到当前城市热映电影数据
@@ -81,6 +107,7 @@ Page({
       }
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
