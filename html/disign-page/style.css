@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.page {
+  width: 100%;
+}
+.head {
+  height: 813px;
+  background-size: 100% auto;
+  background-image: url(./image/section1-bg.png);
+  background-repeat: no-repeat;
+}
+.group-1{
+  overflow: hidden;
+}
+.title {
+  /* padding-top: 225px;
+  padding-left: 367px; */
+  margin: 0 auto;
+  margin-top: 225px;
+  width: 708px;
+	height: 138px;
+}
+.title-1, 
+.title-2 {
+	font-family: Exo-Thin;
+	font-size: 60px;
+	font-weight: 100;
+	font-stretch: normal;
+	line-height: 75px;
+	letter-spacing: 2px;
+  color: #282828;
+  text-align: center;
+}
+.video-icon {
+  /* margin-left: 691px; */
+  margin: 0 auto;
+  margin-top: 63px;
+  width: 59px;
+  height: 59px;
+}
+.rounded-rectangle-1 {
+  /* margin-left: 626px; */
+  margin: 0 auto;
+  margin-top: 49px;
+  width: 190px;
+	height: 50px;
+	background-color: #ff6d6d;
+	border-radius: 3px;
+}
+.try-now {
+	font-family: Exo-Regular;
+	font-size: 16px;
+	font-weight: 100;
+	font-stretch: normal;
+	line-height: 50px;
+	letter-spacing: 3px;
+  color: #ffffff;
+  text-align: center;
+}
+.word {
+  margin-top: 9px;
+  text-align: center;
+}
+.no-need-to-add-cards-details {
+	font-family: Exo-Regular;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: narrower;
+	line-height: 50px;
+	letter-spacing: 1px;
+	color: #282828;
+	opacity: 0.6;
+}
+.body-1 {
+  width: 100%;
+  height: 724px;
+  overflow: hidden;
+}
+.left {
+  float: left;
+  /* overflow: hidden; */
+}
+.description {
+  
+  margin: 208px;
+  margin-left: 149px;
+	width: 571px;
+	height: 367px;
+}
+.new-design {
+	/* width: 119px; */
+	height: 13px;
+	font-family: Exo-Medium;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50px;
+	letter-spacing: 3px;
+	color: #ff6d6d;
+}
+.description-1 {
+  margin-top: 29px;
+  margin-right: 39px;
+  height: 93px;
+	font-family: Exo-Medium;
+	font-size: 40px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50px;
+	color: #282828;
+}
+.description-2 {
+  /* display: inline; */
+	font-family: Exo-Medium;
+	font-size: 40px;
+	font-weight: normal;
+	letter-spacing: 2px;
+	color: #ff6d6d;
+}
+.detail-1 {
+  width: 581px;
+	margin-top: 45px;
+	font-family: Exo-Medium;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 26px;
+	color: #282828;
+	opacity: 0.66;
+}
+.detail-2 {
+  width: 581px;
+	margin-top: 14px;
+	font-family: Exo-Medium;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 26px;
+	color: #282828;
+	opacity: 0.66;
+}
+.right {
+  float: right;
+  /* overflow: hidden; */
+	width: 568px;
+	height: 724px;
+	background-color: #ededed;
+}
+.triangle {
+  width:0;
+  height:0;
+  border-bottom: 568px solid #ff6d6d;
+  border-left: 680px solid transparent;
+  margin-top: 155px;
+  position:relative;
+  z-index: 2;
+}
+.body-2 {
+	height: 675px;
+  background-color: #f6f5f3;
+  background-size: 100% auto;
+  background-image: url(./image/pen-holder.png);
+  background-repeat: no-repeat;
+}
+.earphones {
+  position: relative;
+  margin-top: -80px;
+  margin-left: 1084px;
+  z-index: 1;
+}
+.group-2 {
+  width: 1120px;
+  margin: 0 auto;
+}
+.new-features {
+  margin: 0 auto;
+	width: 149px;
+	font-family: Exo-Medium;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50px;
+	color: #ff6d6d;
+}
+.some-awesone-features {
+  margin: 0 auto;
+	width: 459px;
+	font-family: Exo-Medium;
+	font-size: 40px;
+	font-weight: 100;
+	font-stretch: normal;
+	line-height: 50px;
+	color: #282828;
+}
