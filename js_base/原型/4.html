@@ -6,7 +6,7 @@
   <title>Document</title>
 </head>
 <body>
-  <script>
+  <!-- <script>
     Person.prototype.name = 'wn'
     // new 构造函数的三部曲
     function Person(name) {
@@ -31,22 +31,22 @@
     console.log(person.__proto__);
     // __proto__ 指向谁，就向谁那里找属性
 
-  </script>
+  </script> -->
   <script>
     // 深浅拷贝
     // var a = 1
     // var b = a
     // a = 2
+    // Person.prototype.name = 'wn'
+    Person.prototype = {
+      name: '蜗牛'
+    }
+    function Person() {
 
-    var a = {
-      name: 'wn',
-      age: 18
     }
-    var b = a 
-    a = {
-      name: 'wn',
-      age: 20
-    }
+    var person = new Person()
+    // Person.prototype.name = '蜗牛'
+    console.log(person.name);
   </script>
 </body>
 </html>
