@@ -41,7 +41,7 @@
         // text/plain
         // text/css text/javascript
         // image/jpeg        MIME类型
-        if (file.type.includes('image/')) {
+        if (!file.type.includes('image/')) {
           return;
         }
         // ctx.drawImage(file, )
