@@ -44,4 +44,4 @@ var test = typeof(str) // string
 if(test.length == 6) {
   test.sign = 'typeOf的返回结果可能是String'
 }
-console.log(test.sign);
+console.log(test.sign); // undefined
