@@ -9,6 +9,26 @@ Page({
     takeSession: false,
     requestResult: ''
   },
+  scanCode() {
+    wx.scanCode({
+      onlyFromCamera: true,
+      scanType: ['barCode'],
+      success: res => {
+        // 云函数 小程序，后端功能在云端
+        // 函数完成一个特定功能
+        wx.cloud.callFunction({
+          name: 'bookinfo',
+          data: {
+            isbn: res.result
+          },
+          success: res => {
+            var bookString = res.result;
+            console.log(bookString)
+          }
+        })
+      }
+    })
+  },
 
   onLoad: function() {
     if (!wx.cloud) {

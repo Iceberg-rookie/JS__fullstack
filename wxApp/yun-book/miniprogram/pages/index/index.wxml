@@ -1,5 +1,8 @@
-<view wx:for="{{book_list}}">
-  功能 -> 数据库 -> 组件 云开发之道
-  <vant-card>
-  </vant-card>
-</view>
+<!-- 栅格系统 -->
+<view-row gutter="20">
+  <van-col span="8" offset="8">
+    <van-button
+    type="primary"
+    bind:click="scanCode">扫码加书</van-button>
+  </van-col>
+</view-row>
