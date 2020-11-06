@@ -1,0 +1,5 @@
+<view wx:for="{{book_list}}">
+  功能 -> 数据库 -> 组件 云开发之道
+  <vant-card>
+  </vant-card>
+</view>
