@@ -34,4 +34,20 @@
 // let {y, x, z} = {x: 'aaa', y: 'bbb'}
 // console.log(z);
 
-let { log, sin, cos } = Math
+// let { log, sin, cos, abs } = Math
+// console.log(abs(-2));
+
+// const {log} = console
+// log(123);
+
+// let {foo: baz } = { foo: 'aaa', bar: 'bbb'}
+// console.log(baz);
+
+// let obj = {
+  // p: ['hello', { y: 'world '}]
+// }
+// let {p: [x, { y }]} = obj
+// console.log(x + y);
+
+const [a, b, c, d, e] = 'hello'
+console.log(c);
