@@ -11,5 +11,5 @@ z-index:
 position: absolute  相对于它的包含块来定位
 
 什么是包含块： css 布局时候一个名词。
-怎么来查找包含块
+怎么来查找确定包含块： 包含块
 <!-- position: absolute  父级第一个有定位的元素 -->
