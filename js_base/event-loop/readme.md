@@ -10,9 +10,12 @@
 执行栈可以认为是一个存储函数调用的栈结构
 
 # Event Loop
-微任务：process.nextTick, promise, MutataionOvserver
+微任务：process.nextTick, promise.then, MutataionOvserver
 宏任务：script, setTimeout, setInterval, setImmediate, I/O, UI-rendering
 
 执行顺序：
-  首先执行同步代码，这属于宏任务
-  当执行完所有的同步代码后，执行栈为空，查看是否有异步代码需要执行
+  1. 首先执行同步代码，这属于宏任务
+  2. 当执行完所有的同步代码后，执行栈为空，查看是否有异步代码需要执行
+  3. 执行所有的微任务
+  4. 当所有的微任务执行完后，有必要的话就会渲染页面
+  5. 然后开始下一轮的Event-Loop，执行宏任务中的异步代码
