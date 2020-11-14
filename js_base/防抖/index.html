@@ -28,7 +28,7 @@
         const val = event.target.value
         // console.log(val);
         if (!val) return
-        const url = `http://neteasecloudmusicapi.zhaoboy.com/search?keywords='${val}'`
+        const url = `http://neteasecloudmusicapi.zhaoboy.com/search?keywords=${val}`
         fetch(url)
           .then(res => res.json())
           .then(data => {
