@@ -32,11 +32,13 @@
         fetch(url)
           .then(res => res.json())
           .then(data => {
+            // [{}] => [<li>name</li>]
             let lis = data.result.songs.map((item) => {
               return `
-          <li>${item.name}</li>`
+              <li>${item.name}</li>
+              `
             })
-            let html = lis.json('');
+            let html = lis.join('');
             document.querySelector('#wrap')
               .innerHTML = html
           })
