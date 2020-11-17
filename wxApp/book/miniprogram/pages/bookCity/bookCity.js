@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hotData: []
+    hotData: [],
+    classifyData: []
   },
 
   getList() {
@@ -17,15 +18,25 @@ Page({
       name: 'getList',
       data: {}
     }).then(res => {
-      console.log(res);
+      // console.log(res);
       wx.hideLoading()
       const result = res.result || {}
       this.setData({
-        hotData: result.hotData
+        hotData: result.hotData,
+        classifyData: result.classifyData
       })
+      console.log(this.data.classifyData);
+      
     })
   },
 
+  toReading(e) {
+    // console.log(e.currentTarget.dataset.url);
+    let url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url: `../bookSection/bookSection?url=${url}`
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
