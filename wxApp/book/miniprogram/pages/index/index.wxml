@@ -1,2 +1,11 @@
 <!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<view class="container">
+	<view class="userinfo">
+		<button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">点击获取头像</button>
+		<block wx:else>
+			<image class="userinfo-avatar" src="{{avatarUrl}}" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+		</block>
+	</view>
+</view>
+

@@ -1,11 +1,14 @@
 // pages/index/index.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    avatarUrl: './user-unlogin.png',
+    userInfo: {},
+    hasUserInfo: false
   },
 
   /**
@@ -13,6 +16,18 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+  // 获取用户信息
+  onGetUserInfo(e) {
+    // console.log(e);
+    if(e.detail.userInfo) {
+      app.globalData.userInfo = e.detail.userInfo
+      this.setData({
+        avatarUrl: e.detail.userInfo.avatarUrl,
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+    }
   },
 
   /**
