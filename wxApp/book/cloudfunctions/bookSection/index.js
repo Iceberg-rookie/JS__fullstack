@@ -1,18 +1,20 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 const cheerio = require('cheerio')
-let charset = require('superagent-charset')  // 解决乱码
+let charset = require('superagent-charset') // 解决乱码
 let superagent = require('superagent')  // 发起请求
 charset(superagent)
 cloud.init()
 
+
 // 云函数入口函数
 exports.main = async (event, context) => {
   let serverUrl = `https://wap.biqiuge8.com/${event.url}`
-  const result = await superagent.get(serverUrl).charset('gb2312') // 取决于网页的编码格式
+  const result = await superagent.get(serverUrl).charset('gb2312') // 取决于网页的编码方式
   const data = result.text || ''
   const $ = cheerio.load(data)
   const bookDetail = $('.book_info')
+
   let bookDetailData = {} // 本书详情
   bookDetailData['name'] = $(bookDetail).find('.cover').find('img').attr('alt')
   bookDetailData['imgurl'] = $(bookDetail).find('.cover').find('img').attr('src');
@@ -42,7 +44,7 @@ exports.main = async (event, context) => {
   let lastData = []
   for (let i = 0; i < lastsection.length; i++) {
     let obj = {}
-    obj['sectionName'] = $(lastsection[i]).find('a').text
+    obj['sectionName'] = $(lastsection[i]).find('a').text()
     obj['sectionUrl'] = $(lastsection[i]).find('a').attr('href')
     lastData.push(obj)
   }
