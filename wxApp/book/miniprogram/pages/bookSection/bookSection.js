@@ -5,7 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bookDetailData: {}
+    bookDetailData: {},
+    lastData: [],
+    pageData: [],
+    pageArray: [],
+    page: 1, //当前页
+    pre: '',
+    next: '',
+    preAble: false,
+    nextAble: false,
   },
 
   getSection(url) {
@@ -23,10 +31,30 @@ Page({
       const { result } = res
       this.setData({
         bookDetailData: result.bookDetailData,
+        lastData: result.lastData,
+        pageData: result.pageData,
+        pageArray: result.pageArray,
+        pre: result.pre,
+        next: result.next,
+        preAble: result.pre === '' ? true : false,
+        nextAble: result.next === '' ? true : false,
       })
       // console.log(this.data.bookDetailData);
     })
   },
+
+  // 上一页
+  prePage() {
+    if(this.data.preAble) return 
+    this.getSection(this.data.pre)
+  },
+
+  // 下一页
+  nextPage() {
+    if(this.data.nextAble) return 
+    this.getSection(this.data.next)
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
