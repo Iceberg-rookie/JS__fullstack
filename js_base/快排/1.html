@@ -3,7 +3,8 @@
   // 1. 0 ~ len - 1 i === j i - 1 i + 1 
   // [3, 4, -1, -2, -8, 5, 9]
   function cb(a, b) {
-    return a - b
+    return a - b // 升序
+    // return b - a // 降序
   }
   function partition(arr, left, right) {
     if (left >= right) return
@@ -11,13 +12,16 @@
     let i = left, j = right
     while(i < j) {
       // 在右边找到 < privt
-      // cb(arr[j], privt)
-      while(arr[j] <= privt && i < j) {
+      // cb(arr[j], privt) <= 0
+      // arr[j] <= privt
+      while(cb(arr[j], privt) <= 0 && i < j) {
         j--
       }
       arr[i] = arr[j]
       // 在左边找到 > privt
-      while(arr[i] >= privt && i < j) {
+      // arr[i] >= privt
+      // cb(arr[i], privt) >= 0
+      while(cb(arr[i], privt) >= 0 && i < j) {
         i++
       }
       arr[j] = arr[i]
