@@ -38,6 +38,7 @@ Page({
         next: result.next,
         preAble: result.pre === '' ? true : false,
         nextAble: result.next === '' ? true : false,
+        page: (result.next.split('/')[2]) - 1
       })
       // console.log(this.data.bookDetailData);
     })
@@ -55,6 +56,16 @@ Page({
     this.getSection(this.data.next)
   },
 
+  bindPickerChange(e) {
+    // console.log(e);
+    let page = parseInt(e.detail.value)
+    if(page != this.page) {
+      this.setData({
+        page: page + 1
+      })
+      this.getSection(this.data.pageArray[page].name)
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

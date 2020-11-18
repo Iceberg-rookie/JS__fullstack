@@ -46,7 +46,7 @@
     <button type="warn" size="mini" bindtap="prePage" disabled="{{preAble}}">上一页</button>
   </view>
   <view class="section">
-    <picker mode="selector" value="{{page - 1}}" bindchange="bindDateChange" range="{{pageArray}}" range-key="{{'num'}}">
+    <picker mode="selector" value="{{page - 1}}" bindchange="bindPickerChange" range="{{pageArray}}" range-key="{{'num'}}">
       <view class="picker">
         第 {{pageArray[page].num - 1}} 页
       </view>
