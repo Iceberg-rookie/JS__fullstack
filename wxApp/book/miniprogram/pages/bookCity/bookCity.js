@@ -26,12 +26,11 @@ Page({
         classifyData: result.classifyData
       })
       console.log(this.data.classifyData);
-      
     })
   },
 
   toReading(e) {
-    // console.log(e.currentTarget.dataset.url);
+    console.log(e.currentTarget.dataset.url);
     let url = e.currentTarget.dataset.url
     wx.navigateTo({
       url: `../bookSection/bookSection?url=${url}`
