@@ -17,6 +17,7 @@
   长按：计时器 mouseUp(leave)
   移动click有延迟 300ms 它需要延迟一会看是双击事件还是单击事件
   -->
+  <a href="www.baidu.com" target="_blank">baidu.com</a>
   <div class="wrap">
   </div>
   <script>
@@ -28,9 +29,13 @@
       }, 500)
     }
     // touchstart -> move -> end -> click
+    let startX = 0, startY = 0;
     wrap.addEventListener('touchstart', () => {
-      console.log('tap 发生了');
+      // console.log('tap 发生了');
+      startX = event.touches[0].clientX
+      startY = event.touches[0].clientY
       start();
+      event.preventDefault()
     })
     wrap.addEventListener('click', () => {
       console.log('click 发生了');
@@ -38,8 +43,30 @@
     function end() {
       clearTimeout(timeout);
     }
+    wrap.addEventListener('touchmove',(event) => {
+      let diffx = event.touches[0].clientX - startX
+      let diffy = event.touches[0].clientY - startY
+      if(diffx > diffy) {
+        if(Math.abs(diffx) < 100) return
+        if(diffx > 0) {
+          console.log('右滑动');
+        } else {
+          console.log('左滑动');
+        }
+      }
+    })
     wrap.addEventListener('touchend', () => {
       end();
+    })
+    // document.querySelector('a').onclick = () => {}
+    document.querySelector('a')
+    .addEventListener('click', () => {
+      event.preventDefault()
+      event.stopImmediatePropagation()
+    })
+    document.querySelector('a')
+    .addEventListener('click', () => {
+      console.log('xxx');
     })
   </script>
 </body>
