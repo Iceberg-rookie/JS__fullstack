@@ -46,8 +46,9 @@
     wrap.addEventListener('touchmove',(event) => {
       let diffx = event.touches[0].clientX - startX
       let diffy = event.touches[0].clientY - startY
-      if(diffx > diffy) {
-        if(Math.abs(diffx) < 100) return
+      if(Math.abs(diffx) > Math.abs(diffy)) {
+        if(diffx ** 2 + diffy ** 2> 100) return
+        // if(Math.abs(diffx) < 100) return
         if(diffx > 0) {
           console.log('右滑动');
         } else {
