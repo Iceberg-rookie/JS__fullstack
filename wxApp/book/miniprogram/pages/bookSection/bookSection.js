@@ -98,7 +98,7 @@ Page({
     }
 
     wx.navigateTo({
-      url: `../bookContent.bookContent?url=${url}&name=${this.data.bookDetailData.name}&imgUrl=${this.data.bookDetailData.imgurl}}`,
+      url: `../bookContent/bookContent?url=${url}&name=${this.data.bookDetailData.name}&imgUrl=${this.data.bookDetailData.imgurl}}`,
     })
   },
 
