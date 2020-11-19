@@ -1,4 +1,6 @@
 // miniprogram/pages/bookSection/bookSection.js
+const db = wx.cloud.database()
+const app = getApp()
 Page({
 
   /**
@@ -56,6 +58,7 @@ Page({
     this.getSection(this.data.next)
   },
 
+  //picker 数字跳动
   bindPickerChange(e) {
     // console.log(e);
     let page = parseInt(e.detail.value)
@@ -65,6 +68,72 @@ Page({
       })
       this.getSection(this.data.pageArray[page].name)
     }
+  },
+
+  // 去看小说 
+  navtoUrl(e) {
+    console.log(e);
+    let url = e.currentTarget.dataset.url
+    // 已经存在书架的书，记录阅读状态
+    if(url) {
+      db.collection('book').where({
+        userId: app.globalData.openid,
+        bookName: this.data.bookDetailData.name
+      }).get().then(res => {
+        let data = res.data || []
+        if(data.length > 0) {
+          if(data[0].bookUrl !== url) {
+            const id = data[0]._id || ''
+            db.collection('book').doc(id).update({
+              data: {
+                bookUrl: url
+              }
+            }).then(res => {
+              console.log(res);
+              
+            })
+          }
+        }
+      })
+    }
+
+    wx.navigateTo({
+      url: `../bookContent.bookContent?url=${url}&name=${this.data.bookDetailData.name}&imgUrl=${this.data.bookDetailData.imgurl}}`,
+    })
+  },
+
+  // 加入书架
+  joinBook(e) {
+    let url = e.currentTarget.dataset.url
+    db.collection('book').where({
+      userId: app.globalData.openid,
+      bookName: this.data.bookDetailData.name
+    }).get().then(res => {
+      // console.log(res);
+      const data = res.data[0] || []
+      if(data.length == 0) { // 没有加入过书架
+        db.collection('book').add({
+          data: {
+            userId: app.globalData.openid,
+            bookName: this.data.bookDetailData.name,
+            bookUrl: url,
+            imgurl: this.data.bookDetailData.imgurl
+          }
+        }).then(res => {
+          console.log(res);
+          wx.showToast({
+            icon: 'success',
+            title: '加入书架成功',
+          }, 3000)
+        })
+      } else {
+        wx.showToast({
+          icon: 'none',
+          title: '本书已在书架，请到书架阅读',
+        })
+      }
+    })
+
   },
   /**
    * 生命周期函数--监听页面加载
