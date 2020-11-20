@@ -1,7 +1,7 @@
 <!--miniprogram/pages/bookContent/bookContent.wxml-->
 <view class="sectionName">{{sectionName}}</view>
 <view class="content">
-  <text>{{contentH}}</text>
+  <rich-text nodes="{{contentH}}"></rich-text>
 </view>
 <view class="header">
   <text class="pre" data-url="{{pre}}" bindtap="prePage">上一章</text>
