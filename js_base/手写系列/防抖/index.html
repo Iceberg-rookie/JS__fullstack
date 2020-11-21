@@ -10,9 +10,10 @@
     <button id="btn">click</button>
   </div>
 
+  <script src="./index.js"></script>
   <script>
     let btn = document.getElementById('btn')
-    btn.addEventListener('click', show)
+    btn.addEventListener('click', debounce(show, 1000))
 
     function show() {
       setTimeout(() => {
