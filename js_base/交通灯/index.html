@@ -69,7 +69,7 @@
         }, 2000)
       }, 1000)
     }
-    light(0)
+    // light(0)
     // pending fullfilled rejected
 
     // setTimeout(() => {
@@ -126,18 +126,22 @@
       .then(() => {
 
       })
-      // es7 async + await
-
-      async function light3() {
-        green()
-        await time(1000) // await 后面代码停下来
-        // 
-        yellow()
-        await time(2000)
-        red()
-        await time(3000)
+    }
+    // es7 async + awai
+    async function light3() {
+      green()
+      await time(1000) // await 后面代码停下来
+      // 
+      yellow()
+      await time(2000)
+      red()
+      await time(3000)
+      for(let i = 0; i < 5; i++) {
+        await time(1000)
+        console.log(i);
       }
     }
+    light3()
   </script>
 </body>
 </html>
