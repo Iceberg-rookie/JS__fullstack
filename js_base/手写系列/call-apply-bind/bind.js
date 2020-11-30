@@ -2,6 +2,7 @@ let b = {
   name: '宜豪',
 }
 function a(e, r) {
+  this.sex = 'boy'
   console.log(e + r);
   console.log(this.name);
 }
@@ -15,8 +16,17 @@ Function.prototype.mybind = function(thisArg) {
   const nop = function() {}
   // 绑定函数
   const bound = function() {
-    return self.apply(thisArg , args)
+    return self.apply(
+      this instanceof nop ? this : thisArg , 
+      args
+    )
   }
+  if(this.prototype) {
+    nop.prototype = this.prototype
+  }
+  bound.prototype = new nop()
+  console.log(bound.prototype, '-----');
+  
   return bound
 }
 
