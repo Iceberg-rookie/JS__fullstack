@@ -6,14 +6,16 @@ function a(e, r) {
   console.log(this.name);
 }
 
-Function.prototype.myapply = function(obj, arg) {
+Function.prototype.myapply = function(thisArg) {
   if(typeof this !== 'function') {
     throw new TypeError('Error')
   }
+  const args = arguments[1]
+  console.log(args);
   const fn = Symbol('fn')
-  obj[fn] = this
-  const res = obj[fn](...arg)
-  delete obj[fn]
+  thisArg[fn] = this
+  const res = thisArg[fn](...args)
+  delete thisArg[fn]
   return res
 }
 
