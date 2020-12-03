@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.common.dev.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <div v-if="isLogin">
+      {{msg}}
+    </div>
+    <div v-else>
+      {{msg2}}
+    </div> -->
+    <!-- <div v-show="isLogin">
+      {{msg}}
+    </div> -->
+    <!-- <ul class="news">
+      <li class="item" v-for="{item, index} in news" :key="index">{{item.title}}</li>
+    </ul> -->
+
+    <!-- <span>{{msg}}</span> - <span v-text="msg2"></span> - <span v-html="msg3"></span> -->
+  </div>
+
+  <script>
+    // let dom = document.getElementById('app')
+    // dom.innerHTML = '你好'
+    // let data = {
+    //   msg: 'hello world'
+    // }
+
+    // data.msg = '你好'
+    
+    let app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello world',
+        msg2: '你好',
+        msg3: '<h2>hi vue!<h2>',
+        isLogin: true,
+        news: [
+          { title: '"空降"不到一周 韩俊任吉林代省长 曾是刘鹤"副手"'},
+          { title: '上门女婿成村霸，敲诈勒索故意纵火还打伤司法人员'},
+          { title: 'X光显示肚子内有异物 港媒:黄之锋被关医院单人囚室'},
+          { title: '特朗普突然出手，举行了史上最短一次记者会！'}
+        ]
+      },
+
+      // created() {
+      //   this.msg = 'hello vue!'
+      // }
+    })
+
+  </script>
+</body>
+</html>
