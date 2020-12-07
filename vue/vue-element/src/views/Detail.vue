@@ -10,7 +10,8 @@
 export default {
   methods: {
     goBack() {
-      this.$router.push('/')
+      // this.$router.push({path: '/', query: { id: 123 }})
+      this.$router.push({name: 'Home', params: { id: 1234 }})
     }
   }
 }
