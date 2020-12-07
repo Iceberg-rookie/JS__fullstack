@@ -32,14 +32,19 @@ export default new Router ({
     {
       path: '/about',
       name: 'About',
-      component: About
+      component: About,
+      beforeEnter: (to, from, next) => {
+        console.log(to);
+        console.log(from);
+        next()
+      }
     },
     {
-      path: '/detail:id',
+      path: '/detail',
       name: 'Detail',
       component: Detail,
       // redirect: '/login'
-      alias: '/hello' 
+      // alias: '/hello' 
     }
   ]
 })
