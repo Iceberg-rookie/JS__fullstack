@@ -4,6 +4,7 @@ import Home from '../views/Home'
 import About from '../views/About'
 import home1 from '../views/home1'
 import home2 from '../views/home2'
+import Detail from "@/views/Detail"
 
 Vue.use(Router)
 
@@ -32,6 +33,13 @@ export default new Router ({
       path: '/about',
       name: 'About',
       component: About
+    },
+    {
+      path: '/detail:id',
+      name: 'Detail',
+      component: Detail,
+      // redirect: '/login'
+      alias: '/hello' 
     }
   ]
 })
