@@ -17,7 +17,7 @@
           show-password>
         </el-input>
         
-        <el-button type="primary">登录</el-button>
+        <el-button type="primary" @click="login">登录</el-button>
       </div>
     </div>
   </div>
@@ -29,6 +29,13 @@ export default {
     return {
       userName: '',
       password: ''
+    }
+  },
+  methods: {
+    login() {
+      if(this.userName === 'admin' && this.password === '123456') {
+        this.$router.push({ path: '/home', query: { user: this.userName }})
+      }
     }
   }
 }
