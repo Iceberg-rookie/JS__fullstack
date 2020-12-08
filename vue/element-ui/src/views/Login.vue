@@ -3,7 +3,11 @@
     <div class="login-container">
       <h2>旅梦后台管理系统</h2>
       <div class="wrap">
-        
+        <el-input
+          placeholder="请输入内容"
+          prefix-icon="el-icon-search"
+          v-model="userName">
+        </el-input>
       </div>
     </div>
   </div>
@@ -11,7 +15,11 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      userName: ''
+    }
+  }
 }
 </script>
 
