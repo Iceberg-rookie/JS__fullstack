@@ -3,11 +3,21 @@
     <div class="login-container">
       <h2>旅梦后台管理系统</h2>
       <div class="wrap">
+
         <el-input
-          placeholder="请输入内容"
-          prefix-icon="el-icon-search"
+          placeholder="请输入用户名"
+          prefix-icon="el-icon-user"
           v-model="userName">
         </el-input>
+
+        <el-input 
+          placeholder="请输入密码" 
+          prefix-icon="el-icon-lock"
+          v-model="password" 
+          show-password>
+        </el-input>
+        
+        <el-button type="primary">登录</el-button>
       </div>
     </div>
   </div>
@@ -17,7 +27,8 @@
 export default {
   data() {
     return {
-      userName: ''
+      userName: '',
+      password: ''
     }
   }
 }
@@ -40,5 +51,11 @@ export default {
   box-shadow: 0px 0px 5px #999;
   border-radius: 5px;
   text-align: center;
+}
+.wrap{
+  padding: 10px 50px;
+}
+input{
+  margin: 10px 0;
 }
 </style>
