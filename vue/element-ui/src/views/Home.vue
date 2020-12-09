@@ -30,10 +30,10 @@
                 <i class="el-icon-location"></i>
                 <span>学生列表</span>
               </template>
-              <el-menu-item index="/userInfo">
+              <el-menu-item index="/home/userInfo">
                 <span slot="title">酒神</span>
               </el-menu-item>
-              <el-menu-item index="1-2">
+              <el-menu-item index="/home/form">
                 <span slot="title">小敏</span>
               </el-menu-item>
               <el-menu-item index="1-3">

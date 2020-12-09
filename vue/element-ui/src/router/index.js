@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '@/views/Login'
 import Home from '@/views/Home'
+import UserInfo from '@/views/UserInfo'
+import Form from '@/views/Form'
 
 Vue.use(VueRouter)
 
@@ -13,9 +15,22 @@ export default new VueRouter({
       component: Login
     },
     {
-      path: '/Home',
+      path: '/home',
       name: 'Home',
-      component: Home
+      component: Home,
+      children: [
+        {
+          path: 'userInfo',
+          component: UserInfo
+        },
+        {
+          path: 'form',
+          component: Form
+        },
+        {
+
+        }
+      ]
     }
   ]
 })
