@@ -81,4 +81,7 @@ export default {
 </script>
 
 <style>
+.form{
+  width: 440px;
+}
 </style>
