@@ -18,24 +18,25 @@
       <el-container>
         <el-aside width="200px">
           <el-menu
-            default-active="2"
+            default-active="1-1"
             class="el-menu-vertical-demo"
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#ffd04b"
+            router
           >
             <el-submenu index="1">
               <template slot="title">
                 <i class="el-icon-location"></i>
                 <span>学生列表</span>
               </template>
-              <el-menu-item>
+              <el-menu-item index="/userInfo">
                 <span slot="title">酒神</span>
               </el-menu-item>
-              <el-menu-item>
+              <el-menu-item index="1-2">
                 <span slot="title">小敏</span>
               </el-menu-item>
-              <el-menu-item>
+              <el-menu-item index="1-3">
                 <span slot="title">卢瑞祯</span>
               </el-menu-item>
             </el-submenu>
@@ -45,7 +46,9 @@
             </el-menu-item>
           </el-menu>
         </el-aside>
-        <el-main>Main</el-main>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
