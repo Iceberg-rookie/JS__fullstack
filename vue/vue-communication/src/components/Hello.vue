@@ -2,14 +2,14 @@
   <div class="hello">
     {{message}}
     <hr/>
-
+    {{formHI}}
     <button @click="send">发送</button>
   </div>  
 </template>
 
 <script>
 export default {
-  props: ['message'],
+  props: ['message', 'formHI'],
   data () {
     return {
       msg: '我是子组件里面的数据'
