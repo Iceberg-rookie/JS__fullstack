@@ -6,12 +6,12 @@
     </div>
 
     <div class="city-info">
-      <p class="city">南昌市</p>
-      <p class="weather">阴</p>
-      <p class="temp"><em>9</em>℃</p>
+      <p class="city">{{mapData.city}}</p>
+      <p class="weather">{{mapData.weather}}</p>
+      <p class="temp"><em>{{mapData.temperature}}</em>℃</p>
       <div class="detail">
-        <span>风力:3</span> | <span>风向：西北</span> |
-        <span>空气湿度：75%</span>
+        <span>风力:{{mapData.windPower}}</span> | <span>风向：{{mapData.windDirection}}</span> |
+        <span>空气湿度：{{mapData.humidity}}%</span>
       </div>
     </div>
 
@@ -24,6 +24,7 @@ export default {
   data() {
     return {
       localTime: "",
+      mapData: {}
     };
   },
   created() {
@@ -56,6 +57,7 @@ export default {
       });
     },
     getCurrentCityData(cityName) {
+      let _this = this;
       // 查询天气
       //加载天气查询插件
       AMap.plugin("AMap.Weather", function () {
@@ -65,6 +67,7 @@ export default {
         //执行实时天气信息查询
         weather.getLive(cityName, function (err, data) {
           console.log(err, data);
+          _this.mapData = data
         });
       });
     },
