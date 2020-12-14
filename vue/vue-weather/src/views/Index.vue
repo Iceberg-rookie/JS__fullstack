@@ -6,16 +6,53 @@
     </div>
 
     <div class="city-info">
-      <p class="city">{{mapData.city}}</p>
-      <p class="weather">{{mapData.weather}}</p>
-      <p class="temp"><em>{{mapData.temperature}}</em>℃</p>
+      <p class="city">{{ mapData.city }}</p>
+      <p class="weather">{{ mapData.weather }}</p>
+      <p class="temp">
+        <em>{{ mapData.temperature }}</em
+        >℃
+      </p>
       <div class="detail">
-        <span>风力:{{mapData.windPower}}</span> | <span>风向：{{mapData.windDirection}}</span> |
-        <span>空气湿度：{{mapData.humidity}}%</span>
+        <span>风力:{{ mapData.windPower }}</span> |
+        <span>风向：{{ mapData.windDirection }}</span> |
+        <span>空气湿度：{{ mapData.humidity }}%</span>
+      </div>
+    </div>
+
+    <div class="future" v-if="futureMapData.length > 0">
+      <div class="group">
+        明天:
+        <span class="tm"
+          >白天:{{ futureMapData[0].dayTemp }}
+          {{ futureMapData[0].dayWeather }} {{ futureMapData[0].dayWindDir }}
+          {{ futureMapData[0].dayWindPower }}</span
+        >
+        <span class="tm"
+          >夜间:{{ futureMapData[0].nightTemp }}
+          {{ futureMapData[0].nightWeather }}
+          {{ futureMapData[0].nightWindDir }}
+          {{ futureMapData[0].nightWindPower }}</span
+        >
+      </div>
+      <div class="group">
+        后天:
+        <span class="tm"
+          >白天:{{ futureMapData[1].dayTemp }}
+          {{ futureMapData[1].dayWeather }} {{ futureMapData[1].dayWindDir }}
+          {{ futureMapData[1].dayWindPower }}</span
+        >
+        <span class="tm"
+          >夜间:{{ futureMapData[1].nightTemp }}
+          {{ futureMapData[1].nightWeather }}
+          {{ futureMapData[1].nightWindDir }}
+          {{ futureMapData[1].nightWindPower }}</span
+        >
       </div>
     </div>
 
     <div class="map-container" ref="mapContainer"></div>
+
+    <div class="echart-container" ref="echartContainer"></div>
   </div>
 </template>
 
@@ -24,7 +61,9 @@ export default {
   data() {
     return {
       localTime: "",
-      mapData: {}
+      mapData: {},
+      futureMapData: [],
+      seriesData: []
     };
   },
   created() {
@@ -66,10 +105,62 @@ export default {
 
         //执行实时天气信息查询
         weather.getLive(cityName, function (err, data) {
+          // console.log(err, data);
+          _this.mapData = data;
+        });
+        //执行实时天气信息查询
+        weather.getForecast(cityName, function (err, data) {
           console.log(err, data);
-          _this.mapData = data
+          _this.futureMapData = data.forecasts;
+          _this.futureMapData.map((item) => {
+            _this.seriesData.push(item.dayTemp)
+          })
+          _this.initEchart();
         });
       });
+    },
+    initEchart() {
+      let dom = this.$refs.echartContainer;
+      var myChart = echarts.init(dom);
+      let app = {},
+        option = null;
+      option = {
+        xAxis: {
+          type: "category",
+          data: ["今天", "明天", "后天", "三天后"],
+          axisLine: {
+            lineStyle: {
+              color: "#fff",
+            },
+          },
+          axisTick: {
+            show: false,
+          },
+        },
+        yAxis: {
+          show: false,
+          type: "value",
+        },
+        tooltip: {
+          trigger: "axis",
+          formatter: function (params) {
+            var relVal = params[0].name;
+            for (var i = 0, l = params.length; i < l; i++) {
+              relVal += params[i].value + "°C";
+            }
+            return relVal;
+          },
+        },
+
+        series: [
+          {
+            data: this.seriesData,
+            type: "line",
+          },
+        ],
+      };
+
+      myChart.setOption(option);
     },
   },
 };
@@ -87,6 +178,7 @@ export default {
     padding: 10px;
   }
   .city-info {
+    text-align: center;
     .temp {
       font-size: 26px;
       em {
@@ -95,8 +187,26 @@ export default {
       }
     }
   }
-}
-.map-container {
-  height: 300px;
+  .future {
+    margin-top: 30px;
+    padding: 0 10px;
+    .group {
+      height: 40px;
+      line-height: 44px;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: rgba(16, 16, 16, 1);
+      font-size: 16px;
+      margin-bottom: 10px;
+      padding: 0 10px;
+      .tm {
+        color: #fff;
+      }
+    }
+  }
+  .echart-container {
+    width: 100%;
+    height: 50vh;
+  }
 }
 </style>
