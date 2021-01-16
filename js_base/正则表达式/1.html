@@ -1,0 +1,25 @@
+<script>
+  // 量词
+  // { 1, 2 }
+  var reg = /ab{2,5}/
+  // 内容
+  // ab 或者 ba 
+  var reg1 = /ab|ba/ 
+  var reg2 = /a[123]b/
+  // a1b a2b a3b
+  var reg2 = /[5-9a-z]/
+  // [0-9] \d
+  // [0-9a-zA-Z_] \w 
+  
+  console.log(reg.test('bbbbbbabb')); 
+  console.log(reg1.test('bbbbbbabb'));
+  console.log(reg1.test('ab'))
+
+  // 0-9a-f
+  // #666 #eee
+  // #
+  // 3 | 6 数字 字母的组合
+  let colorReg = /#[0-9a-zA-F]{3}|#[0-9a-fA-F]{6}/
+  let colorReg1 = /#[0-9a-zA-F]{3}|#[0-9a-fA-F]{6}/
+
+</script>
