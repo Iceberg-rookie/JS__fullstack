@@ -20,6 +20,16 @@
   // #
   // 3 | 6 数字 字母的组合
   let colorReg = /#[0-9a-zA-F]{3}|#[0-9a-fA-F]{6}/
-  let colorReg1 = /#[0-9a-zA-F]{3}|#[0-9a-fA-F]{6}/
+  let colorReg1 = /#([0-9a-zA-F]{3}|#[0-9a-fA-F]{6})/
+  // () 分组
+
+  console.log(colorReg.test('#666'));
+  console.log(colorReg1.test('#666'));
+  // replace test match
+  console.log(colorReg1.exec('123#eeefff'))
+
+  // 24小时格式
+  // 18:45
+  
 
 </script>
