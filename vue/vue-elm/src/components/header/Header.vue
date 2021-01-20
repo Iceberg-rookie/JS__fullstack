@@ -5,6 +5,7 @@
         <img width="64" height="64" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2944606985,3722907313&fm=11&gp=0.jpg
 " alt="">
       </div>
+      
       <div class="content">
         <div class="title">
           <span class="brand"></span>
@@ -17,6 +18,10 @@
           <support-ico :size=1 :type=0></support-ico>
           <span class="text">在线支付满28减5</span>
         </div>
+      </div>
+
+      <div class="support-count">
+        <span class="count">5个</span>
       </div>
     </div>
     <div class="bulletin-wrapper">
@@ -75,5 +80,12 @@ export default {
           font-size $fontsize-small
           margin-bottom 8px
           line-height 12px
-
+        .support
+          display flex
+          align-items center
+          &-ico
+            margin-right 4px
+            .text
+              line-height 12px
+              font-size fontsize-small-s
 </style>
