@@ -51,7 +51,7 @@ export default {
 @import '../../common/stylus/mixin.styl'; 
 .header
   position relative
-  overflow hidden 
+  overflow hidden
   color $color-white
   background $color-background-ss
   .content-wrapper
