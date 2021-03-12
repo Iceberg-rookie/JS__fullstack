@@ -21,6 +21,16 @@
               <span class="text">在线支付满28减5</span>
             </li>
           </ul>
+
+          <div class="title">
+            <div class="line"></div>
+            <div class="text">商家公告</div>
+            <div class="line"></div>
+          </div>
+
+          <div class="bulletin">
+            
+          </div>
         </div>
       </div>
     </div>
@@ -98,4 +108,5 @@ export default {
             .text
               line-height 16px
               font-size $fontsize-small
+              margin-left 6px
 </style>
