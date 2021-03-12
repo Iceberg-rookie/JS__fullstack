@@ -85,4 +85,17 @@ export default {
           padding 0 12px
           font-weight 700
           font-size $fontsize-medium
+      .supports
+        width 80%
+        margin 0 auto
+        &-item
+          display flex
+          align-items center
+          padding 0 12px
+          margin-bottom 12px
+          &:last-child
+            margin-bottom 0
+            .text
+              line-height 16px
+              font-size $fontsize-small
 </style>
