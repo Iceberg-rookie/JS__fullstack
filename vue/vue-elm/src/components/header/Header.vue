@@ -33,11 +33,14 @@
     <div class="background">
       <img :src="seller.avatar" alt="" width="100%" height="100%">
     </div>
+
+    <header-detail></header-detail>
   </div>
 </template>
 
 <script>
 import SupportIco from '@/components/support-ico/Support-ico'
+import HeaderDetail from "@/components/header-detail/Header-detail"
 export default {
   props: {
     seller: {
@@ -48,7 +51,8 @@ export default {
     }
   },
   components: {
-    SupportIco
+    SupportIco,
+    HeaderDetail
   }
 }
 </script>
