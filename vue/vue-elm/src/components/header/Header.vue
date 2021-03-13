@@ -34,7 +34,7 @@
       <img :src="seller.avatar" alt="" width="100%" height="100%">
     </div>
 
-    <header-detail></header-detail>
+    <header-detail :seller="seller"></header-detail>
   </div>
 </template>
 

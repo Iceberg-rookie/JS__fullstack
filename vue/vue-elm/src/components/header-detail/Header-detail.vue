@@ -4,7 +4,7 @@
       <div class="detail-wrapper clear-fix">
         <div class="detail-main">
 
-          <h1 class="name">粥品相反</h1>
+          <h1 class="name">{{seller.name}}</h1>
           <div class="star-wrapper">
             <!-- 星星 -->
           </div>
@@ -16,9 +16,9 @@
           </div>
 
           <ul class="supports">
-            <li class="supports-item">
-              <support-ico :size=1 :type=0></support-ico>
-              <span class="text">在线支付满28减5</span>
+            <li class="supports-item"  v-for="item in seller.supports" :key="item.type">
+              <support-ico :size=2 :type="item.type"></support-ico>
+              <span class="text">{{item.description}}</span>
             </li>
           </ul>
 
@@ -29,9 +29,12 @@
           </div>
 
           <div class="bulletin">
-            
+            <p class="content">{{seller.bulletin}}</p>
           </div>
         </div>
+      </div>
+      <div class="detail-close">
+        <i class="icon-close"></i>
       </div>
     </div>
   </transition>
@@ -40,15 +43,22 @@
 <script>
 import SupportIco from '@/components/support-ico/Support-ico'
 export default {
+  props: {
+    seller: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
+  }, 
   components: {
     SupportIco 
   }
 }
 </script>
 
-<style lang='stylus' scoped>
-@import '../../common/stylus/variable.styl'; 
-
+<style lang="stylus" scoped>
+@import '../../common/stylus/variable.styl';
 .header-detail
   position fixed
   top 0
@@ -60,7 +70,7 @@ export default {
   background $color-background-s
   color $color-white
   opacity 1
-  background-filter blur(10px)
+  backdrop-filter blur(10px)
   &.fade-enter, &.fade-leave-to
     opacity 0
     background $color-background
@@ -72,12 +82,12 @@ export default {
     min-height 100%
     .detail-main
       margin-top 64px
-      margin-bottom 64px
+      padding-bottom 64px
       .name
         line-height 16px
         text-align center
         font-size $fontsize-large
-        fonr-weight bold
+        font-weight bold
       .star-wrapper
         margin-top 8px
         padding 2px 0
@@ -105,8 +115,22 @@ export default {
           margin-bottom 12px
           &:last-child
             margin-bottom 0
-            .text
-              line-height 16px
-              font-size $fontsize-small
-              margin-left 6px
+          .text
+            line-height 16px
+            font-size $fontsize-small
+            margin-left 6px
+      .bulletin
+        width 80%
+        margin 0 auto
+        .content
+          padding 0 12px
+          line-height 24px
+          font-size $fontsize-small
+  .detail-close
+    position relative
+    width 30px
+    height 30px
+    margin -64px auto 0 auto
+    font-size $fontsize-large-xxx
+
 </style>
