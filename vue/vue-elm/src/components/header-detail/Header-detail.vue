@@ -33,7 +33,7 @@
           </div>
         </div>
       </div>
-      <div class="detail-close">
+      <div class="detail-close" @click.stop="hide">
         <i class="icon-close"></i>
       </div>
     </div>
@@ -53,6 +53,11 @@ export default {
   }, 
   components: {
     SupportIco 
+  },
+  methods: {
+    hide() {
+      this.$emit('hide', false)
+    }
   }
 }
 </script>
