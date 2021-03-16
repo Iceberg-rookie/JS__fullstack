@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="goods">
-      <div class="menu-wrapper">
+      <div class="menu-wrapper" ref="menuWrapper">
         <ul>
           <li class="menu-item"
           @click="selectMenu(index)"
@@ -24,6 +24,7 @@
 
 <script>
 import { getGoods } from '@/api'
+import BScroll from 'better-scroll'
 export default {
   data() {
     return {
@@ -35,11 +36,20 @@ export default {
     getGoods().then(res => {
       console.log(res);
       this.goods = res
+      this.$nextTick(() => { // 只会在dom渲染完成之后执行
+        this._initScroll()
+      })
+      this._initScroll()
     })
   },
   methods: {
     selectMenu(idx) {
       this.currentIndex = idx
+    },
+    _initScroll() {
+      this.menuScroll = new BScroll(this.$refs.menuWrapper, {
+        click: true
+      })
     }
   }
 }

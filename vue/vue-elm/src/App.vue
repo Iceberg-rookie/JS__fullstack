@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './common/stylus/variable.styl'; 
+@import './common/stylus/variable.styl';
 .tab
   width 100%
   display flex

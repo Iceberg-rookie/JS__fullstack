@@ -108,18 +108,18 @@ export default {
           font-weight bold
           vertical-align middle
           line-height 1
-        .description
-          font-size $fontsize-small
-          margin-bottom 8px
-          line-height 12px
-        .support
-          display flex
-          align-items center
-          &-ico
-            margin-right 4px
-            .text
-              line-height 12px
-              font-size fontsize-small-s
+      .description
+        font-size $fontsize-small
+        margin-bottom 8px
+        line-height 12px
+      .support
+        display flex
+        align-items center
+        &-ico
+          margin-right 4px
+          .text
+            line-height 12px
+            font-size fontsize-small-s
     .support-count
       position absolute
       right 12px
