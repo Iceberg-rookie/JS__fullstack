@@ -51,7 +51,7 @@ export default {
 .tab
   width 100%
   display flex
-  height 36px
+  line-height 36px
   &-wrapper
     flex 1
     text-align center
