@@ -16,7 +16,7 @@
           </div>
 
           <ul class="supports">
-            <li class="supports-item"  v-for="item in seller.supports" :key="item.type">
+            <li class="supports-item" v-for="item in seller.supports" :key="item.type">
               <support-ico :size=2 :type="item.type"></support-ico>
               <span class="text">{{item.description}}</span>
             </li>
@@ -50,9 +50,9 @@ export default {
         return {}
       }
     }
-  }, 
+  },
   components: {
-    SupportIco 
+    SupportIco
   },
   methods: {
     hide() {
@@ -136,6 +136,6 @@ export default {
     width 30px
     height 30px
     margin -64px auto 0 auto
-    font-size $fontsize-large-xxx
-
+    font-size $fontsize-large-xxxx
+    clear both
 </style>

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = '';
+const  baseUrl = '';
 
 export function get(url) {
   return function(params = {}) {
@@ -8,7 +8,7 @@ export function get(url) {
       params
     }).then((res) => {
       const { errno, data } = res.data
-      if(errno === 0) {
+      if (errno === 0) {
         return data
       }
     }).catch((err) => {
@@ -16,3 +16,4 @@ export function get(url) {
     })
   }
 }
+

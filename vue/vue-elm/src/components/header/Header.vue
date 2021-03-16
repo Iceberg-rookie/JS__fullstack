@@ -1,5 +1,5 @@
 <template>
-  <div class="header" @click="showDeail">
+  <div class="header" @click="showDetail">
     <div class="content-wrapper">
       <div class="avatar">
         <img width="64" height="64" :src="seller.avatar" alt="">
@@ -33,14 +33,14 @@
     <div class="background">
       <img :src="seller.avatar" alt="" width="100%" height="100%">
     </div>
-
+    
     <header-detail :seller="seller" v-show="detailVisible" @hide="hideDetail"></header-detail>
   </div>
 </template>
 
 <script>
 import SupportIco from '@/components/support-ico/Support-ico'
-import HeaderDetail from "@/components/header-detail/Header-detail"
+import HeaderDetail from '@/components/header-detail/Header-detail'
 export default {
   props: {
     seller: {
@@ -60,11 +60,12 @@ export default {
     HeaderDetail
   },
   methods: {
-    showDeail() {
+    showDetail() {
       this.detailVisible = true
+      console.log(123);
     },
     hideDetail(e) {
-      // console.log(e);
+      console.log(e);
       this.detailVisible = e
     }
   }
@@ -72,8 +73,8 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../common/stylus/variable.styl'; 
-@import '../../common/stylus/mixin.styl'; 
+@import '../../common/stylus/variable.styl';
+@import '../../common/stylus/mixin.styl';
 .header
   position relative
   overflow hidden
@@ -87,7 +88,7 @@ export default {
     .avatar
       flex 0 0 64px
       margin-right 16px
-      img 
+      img
         border-radius 2px
     .content
       flex 1
@@ -96,8 +97,8 @@ export default {
         align-items center
         margin-bottom 8px
         .brand
-          width 30px
-          height 18px
+          width: 30px;
+          height: 18px;
           bg-image('brand')
           background-size 30px 18px
           background-repeat no-repeat
@@ -110,16 +111,16 @@ export default {
           line-height 1
       .description
         font-size $fontsize-small
-        margin-bottom 8px
+        margin-bottom: 8px;
         line-height 12px
       .support
         display flex
         align-items center
         &-ico
           margin-right 4px
-          .text
-            line-height 12px
-            font-size fontsize-small-s
+        .text
+          line-height 12px
+          font-size $fontsize-small-s
     .support-count
       position absolute
       right 12px
