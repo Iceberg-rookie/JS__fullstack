@@ -57,7 +57,7 @@ export default {
   .menu-wrapper
     flex 0 0 80px
     width 80px
-    background #f3f5f7
+    background #f3f5f7 
     .menu-item
       display flex
       width 56px
