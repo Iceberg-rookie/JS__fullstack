@@ -1,6 +1,10 @@
 <template>
   <div class="count">
     <h3>{{$store.state.count}}</h3>
+    <p>
+      <button>add</button>
+      <button>reduce</button>
+    </p>
   </div>
 </template>
 
