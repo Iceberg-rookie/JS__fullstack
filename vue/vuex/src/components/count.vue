@@ -4,14 +4,14 @@
     <h2>{{count}}</h2>
     <h1>{{msg}}</h1>
     <p>
-      <button @click="$store.commit('add', 10)">add</button>
+      <button @click="add(10)">add</button>
       <button @click="$store.commit('reduce')">reduce</button>
     </p>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   // computed: {
@@ -24,7 +24,8 @@ export default {
       msg: ''
     }
   },
-  computed: mapState(['count'])
+  computed: mapState(['count']),
+  methods: mapMutations(['add', 'reduce'])
 }
 </script>
 
