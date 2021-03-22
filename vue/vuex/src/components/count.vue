@@ -4,7 +4,7 @@
     <h2>{{count}}</h2>
     <h1>{{msg}}</h1>
     <p>
-      <button @click="$store.commit('add')">add</button>
+      <button @click="$store.commit('add', 10)">add</button>
       <button @click="$store.commit('reduce')">reduce</button>
     </p>
   </div>
