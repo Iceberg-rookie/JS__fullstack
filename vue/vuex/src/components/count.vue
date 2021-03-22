@@ -25,7 +25,10 @@ export default {
     }
   },
   computed: mapState(['count']),
-  methods: mapMutations(['add', 'reduce'])
+  methods: {
+    test() {},
+    ...mapMutations(['add', 'reduce'])
+  }
 }
 </script>
 
