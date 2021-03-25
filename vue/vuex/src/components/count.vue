@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 
 export default {
   // computed: {
@@ -24,7 +24,13 @@ export default {
       msg: ''
     }
   },
-  computed: mapState(['count']),
+  // computed: mapState({
+    // newCount: state => state.count * 3
+  // })
+  computed: {
+    ...mapState(['count']),
+    ...mapGetters(['newCount'])
+  },
   methods: {
     test() {},
     ...mapMutations(['add', 'reduce'])
