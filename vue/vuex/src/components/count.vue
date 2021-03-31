@@ -4,7 +4,7 @@
     <h2>{{count}}</h2>
     <h1>{{newCount}}</h1>
     <p>
-      <button @click="addAction(5)">add</button>
+      <button @click="add(5)">add</button>
       <button @click="$store.commit('reduce')">reduce</button>
     </p>
   </div>
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     test() {},
-    ...mapMutations([ 'reduce']),
+    ...mapMutations(['add', 'reduce']),
     ...mapActions(['addAction'])
   }
 }

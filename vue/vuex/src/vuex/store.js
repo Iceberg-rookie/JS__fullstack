@@ -9,7 +9,10 @@ const state = {
 
 const mutations = {
   add(state, num) {
-    state.count += num
+    setTimeout(() => {
+      state.count += num
+    }, 3000)
+    console.log('我后出现');
   },
   reduce(abc) {
     abc.count--
@@ -27,6 +30,7 @@ const actions = {
     setTimeout(() => {
       context.commit('add', n)
     }, 3000)
+    console.log('我先出现');
   }
 }
 
