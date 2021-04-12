@@ -31,5 +31,9 @@ MVC
   定义 字段可有可无， 没有那么严格
   物联网时代以及碎片块化信息的收集
 - db.users.insert({})
-- my
+- mysql table -> mongodb
 collection
+- find()
+  $and
+  ObjectId("")
+  
