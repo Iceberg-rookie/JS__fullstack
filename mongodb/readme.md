@@ -36,4 +36,10 @@ collection
 - find()
   $and
   ObjectId("")
-  
+- update()
+- 索引
+  mysql 关系型数据库、 mongodb NOSQL
+  都有学习， 对js 特别友好， json 存就可以
+  索引进行过学习
+  nums 20000条json  num: i
+  num: 500
