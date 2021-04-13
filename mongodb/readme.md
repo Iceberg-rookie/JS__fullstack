@@ -43,3 +43,15 @@ collection
   索引进行过学习
   nums 20000条json  num: i
   num: 500
+
+- 电商应用
+  node mongodb 的
+
+- 数据怎么进入数据库
+  - 先连接
+    mongodb url once('open')
+  - 对数据库建模
+    userSchema 字段名 + 类型
+    mongoose.model('User',
+    userScheme)
+    new User.save()
