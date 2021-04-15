@@ -1,18 +1,22 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  mouned() {
+    fetch('http://localhost:3000/api/v1')
+    .then(data => {
+      console.log(data);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  },
 }
 </script>
 

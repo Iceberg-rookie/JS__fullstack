@@ -20,3 +20,12 @@ http://localhost:8080-> :3000 跨域
     name: 'shunwuyu',
     sex: '男'
   }
+  ^/api/v1/users/:shunwuyu
+  1. url 响应 /api/ 
+  加路由
+  app.use(启用路由)
+  2. 返回json 
+  3. postman 模拟请求 
+  4. 前端请求 
+  5. 不只是域名，端口和协议不一样都算跨域
+  
