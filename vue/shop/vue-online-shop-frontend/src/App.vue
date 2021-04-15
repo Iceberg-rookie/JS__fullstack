@@ -9,7 +9,8 @@
 export default {
   name: 'App',
   mouned() {
-    fetch('http://localhost:3000/api/v1')
+    fetch('http://localhost:8080/api/v1')
+    .then(data => data.json())
     .then(data => {
       console.log(data);
     })
