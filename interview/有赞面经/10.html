@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">click</button>
+  <p id="content">hello</p>
+  <script>
+    class EventEmitter {
+      constructor() {
+        this.events = this.events || new Map()
+      }
+
+      addListener(type, fn) { // 监听事件 往系统里添加事件
+        if (this.events.get(type)) {
+          this.events.set(type, fn)
+        }
+      }
+
+      emit(type) { // 触发事件，执行系统里的某事件
+        let hand = this.events.get(type)
+        handle.apply(this, [...arguments].slice(1))
+      }
+    }
+
+    let emitter = new EventEmitter()
+    // emitter.addEventListener('foo', foo)
+
+    function foo() {
+      console.log('okk');
+    }
+    document.getElementById('btn').addEventListener('click', () => {
+      emitter.emit('foo')
+    })
+  </script>
+</body>
+</html>
