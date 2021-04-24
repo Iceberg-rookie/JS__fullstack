@@ -119,6 +119,7 @@ export default function $axios() {
       })
       .catch(error => {
         reject(error)
+        
       })
   })
 }
