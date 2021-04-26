@@ -1,4 +1,3 @@
-import { defineProperties } from 'core-js/core/object'
 import apiLogin from './interface/login'
 
 const install = Vue => {
