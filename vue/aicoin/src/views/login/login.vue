@@ -39,6 +39,12 @@
             </el-input>
           </el-tab-pane>
           
+          <el-checkbox v-model="checked">自动登录</el-checkbox>
+          <el-link type="primary">忘记密码？</el-link>
+
+          <el-button type="primary">登录</el-button>
+          
+          <el-link type="primary">注册账户</el-link>
         </el-tabs>
       </div>
     </div>
