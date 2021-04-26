@@ -1,0 +1,14 @@
+{
+  "name": "fanye",
+  "description": "项目的一特点：全栈的展示\r - sql limit offset \r - 前端分页 antd List",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "superagent": "^6.1.0"
+  }
+}

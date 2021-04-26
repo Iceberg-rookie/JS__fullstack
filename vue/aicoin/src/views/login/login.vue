@@ -37,6 +37,7 @@
             <el-input placeholder="验证码" v-model="input2">
               <i slot="prefix" class="el-input__icon el-icon-message"></i>
             </el-input>
+            <el-button>获取验证码</el-button>
           </el-tab-pane>
           
           <el-checkbox v-model="checked">自动登录</el-checkbox>
