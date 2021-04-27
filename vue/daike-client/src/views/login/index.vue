@@ -27,8 +27,8 @@
 export default {
   data() {
     return {
-      username: "",
-      password: "",
+      username: '',
+      password: '',
     }
   },
   methods: {
@@ -40,7 +40,7 @@ export default {
         duration: 0
       })
     },
-    login(){
+    login() {
       this.$http.login({
         username: this.username,
         password: this.password

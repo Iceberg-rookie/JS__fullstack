@@ -1,14 +1,14 @@
 import axios from 'axios'
 import config from './config.js'
-import qs from 'qs' // 序列化请求数据，服务器请求
+import qs from 'qs' // 序列化请求数据，服务端请求
 import router from 'vue-router'
 
-import { Toast } from 'vant'
+import { Toast } from 'vant';
 
-export default function $axios() {
+export default function $axios(options) {
   return new Promise((resolve, reject) => {
     const instance = axios.create({
-      baseURL: config.baseURL,
+      baseURL: config.baseURL
     })
 
     // 请求拦截
@@ -119,7 +119,6 @@ export default function $axios() {
       })
       .catch(error => {
         reject(error)
-        
       })
   })
 }
