@@ -22,6 +22,9 @@
           label-width="100px"
           class="demo-ruleForm"
         >
+          <el-form-item>
+            <span>注册</span>
+          </el-form-item>
           <el-form-item prop="email">
             <el-input
               type="email"
@@ -59,17 +62,15 @@
               type="identifyCode"
               v-model="ruleForm.identifyCode"
               autocomplete="off"
-              placeholder="验证码"
+              placeholder="输入验证码"
             >
-              <i slot="prefix" class="el-input__icon el-icon-message"></i>
             </el-input>
-
             <el-button>获取验证码</el-button>
           </el-form-item>
           <el-form-item prop="register">
             <el-button
               type="primary"
-              @click="submitForm('ruleForm')"
+              @click="register('ruleForm')"
             >注册</el-button>
             <el-link
               type="primary"
@@ -86,6 +87,7 @@
 <script>
 export default {
   data() {
+    // 校验邮箱
     var validateEmail = (rule, value, callback) => {
       if (value === "") {
         return callback(new Error("请输入邮箱地址"));
@@ -100,6 +102,7 @@ export default {
       // 不合法的邮箱
       callback(new Error('请输入正确的邮箱'))
     };
+    // 校验密码
     var validatePass = (rule, value, callback) => {
       // 验证密码的正则表达式
       var passwordreg = /(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{6,16}/
@@ -113,6 +116,7 @@ export default {
           }
       }
     };
+    // 再次校验密码
     var validatePass2 = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请再次输入密码"));
@@ -122,6 +126,7 @@ export default {
         callback();
       }
     };
+    // 校验手机号
     var validatePhone = (rule, value, callback) => {
       if (value === "") {
         return callback(new Error("请输入手机号码"));
@@ -136,23 +141,31 @@ export default {
       // 不合法
       callback(new Error('请输入正确的手机号'))
     };
+    // 校验验证码
+    var validateidentifyCode = (rule, value, callback) => {
+      if (value === "") {
+        return callback(new Error("请输入验证码"));
+      }
+    }; 
     return {
       ruleForm: {
         email: "",
         pass: "",
         checkPass: "",
         phone: "",
+        identifyCode: "",
       },
       rules: {
         email: [{ validator: validateEmail, trigger: ['blur', 'change'] }],
         pass: [{ validator: validatePass, trigger: "blur" }],
         checkPass: [{ validator: validatePass2, trigger: "blur" }],
-        phone: [{ validator: validatePhone, trigger: "blur" }]
+        phone: [{ validator: validatePhone, trigger: "blur" }],
+        identifyCode: [{ validator: validateidentifyCode, trigger: "blur" }],
       },
     };
   },
   methods: {
-    submitForm(formName) {
+    register(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           alert("submit!");
@@ -161,9 +174,6 @@ export default {
           return false;
         }
       });
-    },
-    resetForm(formName) {
-      this.$refs[formName].resetFields();
     },
   },
 };

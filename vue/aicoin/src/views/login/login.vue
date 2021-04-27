@@ -14,12 +14,12 @@
         </p>
       </div>
       <div class="aicoin-container">
-        <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tabs v-model="login">
           <el-tab-pane label="账户密码登录" name="first">
-            <el-input placeholder="账户" v-model="input1">
+            <el-input placeholder="账户" v-model="user">
               <i slot="prefix" class="el-input__icon el-icon-user"></i>
             </el-input>
-            <el-input placeholder="密码" v-model="input2">
+            <el-input placeholder="密码" v-model="password" show-password>
               <i slot="prefix" class="el-input__icon el-icon-lock"></i>
             </el-input>
             <el-checkbox v-model="checked">自动登录</el-checkbox>
@@ -30,10 +30,10 @@
             <el-link type="primary" :underline="false" href="/">注册账户</el-link>
           </el-tab-pane>
           <el-tab-pane label="手机号登录" name="second">
-            <el-input placeholder="手机号" v-model="input1">
+            <el-input placeholder="手机号" v-model="phone">
               <i slot="prefix" class="el-input__icon el-icon-mobile-phone"></i>
             </el-input>
-            <el-input placeholder="验证码" v-model="input2">
+            <el-input placeholder="验证码" v-model="idCode">
               <i slot="prefix" class="el-input__icon el-icon-message"></i>
             </el-input>
 
@@ -43,7 +43,7 @@
             
             <el-link type="primary" :underline="false" href="">忘记密码？</el-link>
 
-            <el-button type="primary">登录</el-button>
+            <el-button type="primary" @click="login(doLogin)">登录</el-button>
 
             <el-link type="primary" :underline="false" href="/">注册账户</el-link>
           </el-tab-pane>
@@ -54,19 +54,20 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
-      activeName: "first",
-      input1: '',
-      input2: '',
-      checked: 'false'
+      login: "first",
+      user: '',
+      password: '',
+      checked: 'false',
+      phone: '',
+      idCode: ''
     };
   },
   methods: {
-    handleClick(tab, event) {
-      console.log(tab, event);
-    },
+    
   },
 };
 </script>
