@@ -1,4 +1,5 @@
 const User_col = require('../models/user')
+const Password_col = require('../models/password')
 
 const login = async (ctx) => {
   console.log(ctx.request.body);
@@ -20,6 +21,16 @@ const login = async (ctx) => {
   }
 
   // 能找到这个账号
+  const userId = user.userId
+
+  // 查密码
+  const pass = await_col.findOne({
+    userId
+  }, {
+    hash: 1
+  })
+  // 如果在密码表里面找到了账号相同的id
+  // 判断该id对应的密码和前端传过来的密码是否匹配
   
 }
 
