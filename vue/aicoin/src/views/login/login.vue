@@ -22,13 +22,12 @@
             <el-input placeholder="密码" v-model="input2">
               <i slot="prefix" class="el-input__icon el-icon-lock"></i>
             </el-input>
-
             <el-checkbox v-model="checked">自动登录</el-checkbox>
-            <el-link type="primary">忘记密码？</el-link>
+            <el-link type="primary" :underline="false" href="">忘记密码？</el-link>
 
             <el-button type="primary">登录</el-button>
 
-            <el-link type="primary">注册账户</el-link>
+            <el-link type="primary" :underline="false" href="/">注册账户</el-link>
           </el-tab-pane>
           <el-tab-pane label="手机号登录" name="second">
             <el-input placeholder="手机号" v-model="input1">
@@ -37,15 +36,17 @@
             <el-input placeholder="验证码" v-model="input2">
               <i slot="prefix" class="el-input__icon el-icon-message"></i>
             </el-input>
-            <el-button>获取验证码</el-button>
-          </el-tab-pane>
-          
-          <el-checkbox v-model="checked">自动登录</el-checkbox>
-          <el-link type="primary">忘记密码？</el-link>
 
-          <el-button type="primary">登录</el-button>
-          
-          <el-link type="primary">注册账户</el-link>
+            <el-button>获取验证码</el-button>
+            
+            <el-checkbox v-model="checked">自动登录</el-checkbox>
+            
+            <el-link type="primary" :underline="false" href="">忘记密码？</el-link>
+
+            <el-button type="primary">登录</el-button>
+
+            <el-link type="primary" :underline="false" href="/">注册账户</el-link>
+          </el-tab-pane>
         </el-tabs>
       </div>
     </div>
