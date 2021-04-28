@@ -1,8 +1,6 @@
 const router = require('koa-router')()
+const controller = require('../controller/c-signin.js')
 
-router.post('./sign', (ctx) => {
-  // 展示登录页面
-  ctx.body = 'signin'
-})
+router.get('./sign', controller.postSignin)
 
 module.exports = router
