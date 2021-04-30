@@ -1,11 +1,11 @@
 <template>
   <div class="page">
-    <div class="container">
-      <div class="aicoin-title">
-        <i><img src="" alt="" /></i>
+    <div class="login-box">
+      <div class="login-title">
+        <i><img src="./../../assets/logo.png" alt="" /></i>
         <h3>AIcoin量化交易分析平台</h3>
       </div>
-      <div class="aicoin-detail">
+      <div class="login-detail">
         <p>
           AICoin是一个数字货币量化分析与交易的平台，致力于帮助交易者分析数字货币价格走向，
           利用各种金融指标和Al技术进行走势预测，并对接交易所进行程序化交易。
@@ -13,7 +13,7 @@
           利用各种金融指标和Al技术进行走势预测，并对接交易所进行程序化交易。
         </p>
       </div>
-      <div class="aicoin-container">
+      <div class="login-container">
         <el-tabs v-model="login">
           <el-tab-pane label="账户密码登录" name="first">
             <el-input placeholder="账户" v-model="user">
@@ -23,11 +23,15 @@
               <i slot="prefix" class="el-input__icon el-icon-lock"></i>
             </el-input>
             <el-checkbox v-model="checked">自动登录</el-checkbox>
-            <el-link type="primary" :underline="false" href="">忘记密码？</el-link>
+            <el-link type="primary" :underline="false" href=""
+              >忘记密码？</el-link
+            >
 
             <el-button type="primary">登录</el-button>
 
-            <el-link type="primary" :underline="false" href="/">注册账户</el-link>
+            <el-link type="primary" :underline="false" href="/register"
+              >注册账户</el-link
+            >
           </el-tab-pane>
           <el-tab-pane label="手机号登录" name="second">
             <el-input placeholder="手机号" v-model="phone">
@@ -38,14 +42,18 @@
             </el-input>
 
             <el-button>获取验证码</el-button>
-            
+
             <el-checkbox v-model="checked">自动登录</el-checkbox>
-            
-            <el-link type="primary" :underline="false" href="">忘记密码？</el-link>
+
+            <el-link type="primary" :underline="false" href=""
+              >忘记密码？</el-link
+            >
 
             <el-button type="primary" @click="login(doLogin)">登录</el-button>
 
-            <el-link type="primary" :underline="false" href="/">注册账户</el-link>
+            <el-link type="primary" :underline="false" href="/register"
+              >注册账户</el-link
+            >
           </el-tab-pane>
         </el-tabs>
       </div>
@@ -54,23 +62,45 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
       login: "first",
-      user: '',
-      password: '',
-      checked: 'false',
-      phone: '',
-      idCode: ''
+      user: "",
+      password: "",
+      checked: "false",
+      phone: "",
+      idCode: "",
     };
   },
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 
-<style>
+<style lang="less" scoped>
+.page {
+  width: 98vw;
+  height: 97vh;
+  display: flex;
+}
+  .login-box {
+    margin: auto;
+    width: 376px;
+    height: 376px;
+    border: 2px solid #000;
+    font-size: 12px;
+  }
+    .login-title {
+      margin-top: 10px;
+      img {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        vertical-align:middle;
+      }
+      h3 {
+        display: inline;
+        vertical-align:middle;
+      }
+    }
 </style>

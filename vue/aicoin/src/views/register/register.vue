@@ -1,11 +1,11 @@
 <template>
   <div class="page">
-    <div class="container">
-      <div class="aicoin-title">
+    <div class="register-box">
+      <div class="register-title">
         <i><img src="" alt="" /></i>
         <h3>AIcoin量化交易分析平台</h3>
       </div>
-      <div class="aicoin-detail">
+      <div class="register-detail">
         <p>
           AICoin是一个数字货币量化分析与交易的平台，致力于帮助交易者分析数字货币价格走向，
           利用各种金融指标和Al技术进行走势预测，并对接交易所进行程序化交易。
@@ -13,7 +13,7 @@
           利用各种金融指标和Al技术进行走势预测，并对接交易所进行程序化交易。
         </p>
       </div>
-      <div class="aicoin-container">
+      <div class="register-container">
         <el-form
           :model="ruleForm"
           status-icon
@@ -75,7 +75,7 @@
             <el-link
               type="primary"
               :underline="false"
-              href="../login"
+              href="/"
             >使用已有账户登录</el-link>
           </el-form-item>
         </el-form>
