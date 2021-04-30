@@ -17,7 +17,7 @@ router.post('/userRegister', async(ctx, next) => {
   let _userpwd = ctx.request.body.userpwd;
   let _nickname = ctx.request.body.nickname;
   // console.log(_username, _userpwd, _nickname);
-  if(!_username || !_userpwd || !_nickname) {
+  if (!_username || !_userpwd || !_nickname) {
     ctx.body = {
       code: '80001',
       mess: '用户名密码和昵称不能为空'
@@ -25,7 +25,6 @@ router.post('/userRegister', async(ctx, next) => {
     return
   }
   await userService.findUser(_username).then(async (res) => {
-    // console.log(res);
     if (res.length) {
       ctx.body = {
         code: '80003',
@@ -34,16 +33,16 @@ router.post('/userRegister', async(ctx, next) => {
     } else {
       await userService.insertUser([_username, _userpwd, _nickname]).then(res => {
         console.log(res);
-        let r = ''
+        let r = '';
         if (res.affectedRows != 0) {
           r = 'ok'
           ctx.body = {
             code: '80000',
             data: r,
             mess: '注册成功'
-          } 
+          }
         } else {
-          r = 'ok'
+          r = 'error'
           ctx.body = {
             code: '80004',
             data: r,
@@ -53,7 +52,6 @@ router.post('/userRegister', async(ctx, next) => {
       })
     }
   })
-
 })
 
 // 登录
@@ -92,5 +90,59 @@ router.post('/userLogin', async(ctx, next) => {
     }
   })
 })
+
+// 根据分类查找对应的文章列表
+router.post('/findNoteListByType', async(ctx, next) => {
+  let note_type = ctx.request.body.note_type
+  await userService.findNoteListByType(note_type).then(async (res) => {
+    // console.log(res);
+    let r = '';
+    if (res.length) {
+      r = 'ok'
+      ctx.body = {
+        code: '80000',
+        data: res,
+        mess: '查找成功'
+      }
+    } else {
+      r = 'error'
+      ctx.body = {
+        code: '80004',
+        data: r,
+        mess: '查找失败'
+      }
+    }
+  })
+})
+
+// 根据id查找对应的文章详情
+router.post('/findNoteDetailById',async (ctx, next) => {
+  let note_id = ctx.request.body.note_id
+  // console.log(note_type);
+  await userService.findNoteDetail(note_id).then(res => {
+    // console.log(res);
+    let r = ''
+    if (res.length) {
+        r = 'ok'
+        ctx.body = {
+          code: '80000',
+          data: res[0],
+          mess: '查找成功'
+      }
+    } else {
+      r = 'error'
+      ctx.body = {
+        code:'80004',
+        mess:'暂无数据'
+      }
+    }
+  })
+})
+
+// 发布笔记
+router.post('/insertNote', async() => {
+  
+})
+
 
 module.exports = router

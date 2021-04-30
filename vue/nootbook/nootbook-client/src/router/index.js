@@ -28,6 +28,30 @@ const routes = [
     meta: {
       title: '笔记分类'
     }
+  },
+  {
+    path: '/noteList',
+    name: 'noteList',
+    component: () => import('@/views/noteList/index'),
+    meta: {
+      title: '笔记列表'
+    }
+  },
+  {
+    path: '/noteDetail',
+    name: 'noteDetail',
+    component: () => import('@/views/noteDetail/index'),
+    meta: {
+      title: '笔记详情'
+    }
+  },
+  {
+    path: '/noteEdit',
+    name: 'noteEdit',
+    component: () => import('@/views/noteEdit/index'),
+    meta: {
+      title: '笔记编辑'
+    }
   }
 ]
 
