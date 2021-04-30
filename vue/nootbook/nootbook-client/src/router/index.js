@@ -12,6 +12,22 @@ const routes = [
     meta: {
       title: '登录'
     }
+  },
+  {
+    path: '/starRegister',
+    name: 'starRegister',
+    component: () => import('@/views/register/index'),
+    meta: {
+      title: '注册'
+    }
+  },
+  {
+    path: '/noteClass',
+    name: 'noteClass',
+    component: () => import('@/views/noteClass/index'),
+    meta: {
+      title: '笔记分类'
+    }
   }
 ]
 

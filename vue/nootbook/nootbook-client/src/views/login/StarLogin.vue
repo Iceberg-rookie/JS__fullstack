@@ -2,10 +2,10 @@
   <div class="star-login">
     <h1>登录</h1>
     <div class="login-wrapper">
-      <div class="avatar" :style="`background-image: url(${avatar})` "></div>
+      <div class="avatar" :style="`background-image: url(${avatar})`"></div>
 
       <div class="input-group">
-        <label for="username">账户</label>
+        <label for="username">账号</label>
         <input type="text" id="username" v-model="username">
       </div>
 
@@ -17,27 +17,43 @@
       <p class="forgot-pwd">忘记密码</p>
       <div class="sign" @click="login">登录</div>
     </div>
-    <p class="register">新用户？点击这里注册</p>
+    <p class="register" @click="register">新用户？点击这里注册</p>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       avatar: require('./../../assets/img/raw_1512446140.jpeg'),
       username: '',
-      userpwd: '',
+      userpwd: ''
     }
   },
   methods: {
     login() {
       if (this.username.trim() == "" || this.userpwd.trim() == "") {
-        this.$toast('账号或密码不能为空')
-        return 
+        this.$toast('账号或密码不能为空');
+        return
       }
-      // 发送请求
-      axios
+      // 发接口请求
+      this.$http({
+        method: 'post',
+        url: this.$util.baseUrl+'users/userLogin',
+        data: {
+          username: this.username.trim(),
+          userpwd: this.userpwd.trim()
+        }
+      }).then(res => {
+        if (res.data.code === '80000') {
+          console.log(res);
+          sessionStorage.setItem('userInfo', JSON.stringify(res.data.data))
+          this.$router.push('/noteClass')
+        }
+      })
+    },
+    register() {
+      this.$router.push('/starRegister')
     }
   }
 }
