@@ -1,4 +1,4 @@
-// 双重fro循环
+// 双重fro循环去重
 let array = [1, 2, 3, 1, '1', '1']
 
 function unique(arr) {
