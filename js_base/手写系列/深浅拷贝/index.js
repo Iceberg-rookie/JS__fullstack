@@ -15,3 +15,11 @@
 // arr[0].old = 'new'
 // console.log(new_arr);
 
+// let arr = [{old: 'old'} , 1, true, null, undefined]
+// let new_arr = JSON.parse(JSON.stringify(arr)) // 不能拷贝函数  undefined识别不了，会变成null
+// arr[0].old = 'new'
+// console.log(new_arr);
+
+let arr = [function() {console.log('a')}, {o: function() {'b'},}]
+let new_arr = JSON.parse(JSON.stringify(arr))
+console.log(new_arr);
