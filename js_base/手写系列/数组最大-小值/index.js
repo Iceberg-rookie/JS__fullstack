@@ -32,5 +32,10 @@ console.log(arr.reduce(max));
 array.sort(function (a, b) {
   return b - a
 })
-
 console.log(array[0]);
+
+// eval
+let max = eval("Math.max(" + array + ")")
+
+// apply
+Math.max.apply(null, array)
