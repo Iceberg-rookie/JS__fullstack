@@ -1,4 +1,4 @@
-let arr = [1, [2, [3, 4]]]
+// let arr = [1, [2, [3, 4]]]
 
 // function falltten(arr) {
 //   let result = []
@@ -22,4 +22,12 @@ let arr = [1, [2, [3, 4]]]
 //   }, [])
 // }
 
-console.log([].concat(...arr));
+let arr = [1, [2, [3, 4]]] // 1, [2, [3, 4]]
+function falltten(arr) {
+  while(arr.some(item => Array.isArray(item))) {
+    arr = [].concat(...arr)
+  }
+  return arr
+}
+
+console.log(falltten(arr));
