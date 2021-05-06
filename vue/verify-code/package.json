@@ -1,11 +1,20 @@
 {
-  "name": "verify-code",
+  "name": "iceberg-verify-code",
   "version": "0.1.0",
+  "main": "lib/verify-code.umd.main.js",
+  "author": "icberg",
+  "description": "test-test",
+  "keywords": [
+    "vue",
+    "verify-code",
+    "icebrg-verify-code"
+  ],
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name verify-code --dest lib ./src/main.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",

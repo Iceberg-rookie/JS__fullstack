@@ -5,10 +5,11 @@
       <router-link to="/about">关于</router-link>
     </p>
     
+    <VerifyCode />
 
     <!-- 路由入口 -->
     <transition name="fade">
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
     </transition>
   </div>
 </template>

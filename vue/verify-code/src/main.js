@@ -1,8 +1,3 @@
-import Vue from 'vue'
-import App from './App.vue'
-
-Vue.config.productionTip = false
-
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+import IcebergVerifyCode from './verify-code.vue'
+IcebergVerifyCode.install = Vue => Vue.component(IcebergVerifyCode.name, IcebergVerifyCode)
+export default IcebergVerifyCode
