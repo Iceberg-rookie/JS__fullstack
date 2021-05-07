@@ -8,6 +8,14 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/home',
+    name: 'home',
+    component: () => import('@/views/home/home'),
+    meta: {
+      title: 'AICoin量化交易分析平台'
+    }
+  },
+  {
     path: '/',
     name: 'login',
     component: Login,
@@ -21,14 +29,6 @@ const routes = [
     component: () => import('@/views/register/register'),
     meta: {
       title: '注册'
-    }
-  },
-  {
-    path: '/home',
-    name: 'home',
-    component: () => import('@/views/home/home'),
-    meta: {
-      title: 'AICoin量化交易分析平台'
     }
   },
 ]
