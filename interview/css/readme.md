@@ -85,4 +85,17 @@
 
 - 样式来源优先级： important > 内联样式 > 内部样式 > 外部样式 > 浏览器用户自定义 > 浏览器默认样式
 
+# float的元素，display是什么？
+
+# 三栏布局的实现
+圣杯，双飞翼
+三列布局：
+1. flex
+2. 两列定宽一列自适应 float + margin
+3. display: table
+4. display: grid(栅格系统)
+
+# display: table 和 table 本身有什么区别
+- display: table声明能够让html元素和它的子节点像table元素一样使用，但是文件会比table小，div + css 是逐行显示，table 是页面完全加载后才显示
+
 # 
