@@ -86,6 +86,7 @@
 - 样式来源优先级： important > 内联样式 > 内部样式 > 外部样式 > 浏览器用户自定义 > 浏览器默认样式
 
 # float的元素，display是什么？
+- display: block
 
 # 三栏布局的实现
 圣杯，双飞翼
@@ -98,4 +99,30 @@
 # display: table 和 table 本身有什么区别
 - display: table声明能够让html元素和它的子节点像table元素一样使用，但是文件会比table小，div + css 是逐行显示，table 是页面完全加载后才显示
 
-# 
+# 设置一个元素的背景色，背景色会填充哪些区域
+content + padding + border
+
+# inline-block, inline和block的区别；为什么img是inline还可以设置宽高
+- 块级元素默认前后自带换行符，所以它会自动占据一行
+- 而行内块级元素不带换行符，所以它不会占据一行
+- img 是 可替换换元素(img、video、 iframe) 它们的内容不受当前文档的样式影响 css可以影响可替换元素的位置，但不会影响可替换元素的内容，可替换元素拥有内置宽高，与可以设置宽高，它们的性质和设置了display: inline-block一致
+
+# 重绘 和 回流 (重排) (回流一定会引起重绘，而重绘不一定会引起回流，回流会重新排列布局，而重绘可能只是重绘颜色)
+
+# 让文档脱离文档流
+- 定位
+- 浮动
+
+# css 画三角形
+- <div class="abc"></div>
+
+  .abc {
+        width: 0;
+        height: 0;
+        border-top: 50px solid blue;
+        border-right: 50px solid transparent;
+        border-left: 50px solid transparent;
+      }
+
+# css 布局种类
+圣杯布局，双飞翼布局，flex布局，绝对定位布局，表哥布局、网格布局
