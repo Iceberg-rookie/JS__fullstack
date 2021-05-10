@@ -128,3 +128,17 @@ Token - AST - 遍历AST - 生成新的代码
 # 事件委托
 
 # new 干了什么
+{
+  _proto_: Fn.prototype
+
+}
+
+# 防抖、节流
+
+# 垃圾回收机制
+
+# 对象深克隆
+- copy.js
+
+# once 函数
+- once.js
