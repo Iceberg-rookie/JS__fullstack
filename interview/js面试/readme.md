@@ -61,3 +61,20 @@
 - 后来 迎来了 promise.then()
 - 再后来 是 generator
 - 再ES7 实现了 async await
+
+# promise
+- promise 是 ES6 的语法，它解决了回调地狱的问题，
+  我们可以把 promise 看成是一个状态机，它里面有默认的三种状态，
+  只要执行了 resolve ，状态就会变成 resolved ，
+  只要执行了 reject ，状态就会变成 rejected ，状态一旦改变了就无法再次变化了，
+  .then() 函数会返回一个 Promise 的实例出来(返回的是一个新的 Promise 实例，不是原来自己那个 Promise )，
+  promise.then() 会去到下一次的微任务队列，所以 promise.then() 会帮我们把异步捋成同步
+
+# == 和 === 区别，什么情况下用 ==
+- [] == ![] true 隐式类型转换
+  => [] == false 
+  => '' == false 
+  => 0 == 0 
+  => true
+
+# 浏览器的Eventloop 和 Node中的区别
