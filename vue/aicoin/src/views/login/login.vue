@@ -58,7 +58,7 @@
               >
             </div>
 
-            <el-button type="primary" @click="login(doLogin)">登录</el-button>
+            <el-button type="primary" @click="doLogin">登录</el-button>
 
             <div class="login-container_isbuttom2">
               <el-link type="primary" :underline="false" href="/register"
@@ -84,7 +84,11 @@ export default {
       idCode: "",
     };
   },
-  methods: {},
+  methods: {
+    doLogin() {
+      this.$router.push('/home')
+    }
+  },
 };
 </script>
 

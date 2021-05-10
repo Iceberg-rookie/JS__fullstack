@@ -37,7 +37,7 @@
       <div class="sideBar">
         <el-col :span="12">
           <el-menu
-            default-active="2"
+            default-active="1"
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
@@ -45,6 +45,9 @@
             text-color="#fff"
             active-text-color="#ffd04b"
           >
+            <div class="side-bar-logo">
+              <img src="@/assets/img/logo.png" alt="" style="width: 40px" />
+            </div>
             <el-submenu index="1">
               <template slot="title">
                 <i class="el-icon-location"></i>
@@ -110,19 +113,35 @@ export default {
   height: 100vh;
 }
   .headWrapper {
-    z-index: 2;
+    z-index: 998;
     /deep/ .el-menu-demo {
       display: flex;
       justify-content: flex-end;
     }
   }
   .sideBar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
     overflow: hidden;
-    /deep/ .el-col-12 {
-      overflow: hidden;
+    overflow-y: scroll;
+    /deep/ .el-col {
       width: 10em;
-      .el-menu-vertical-demo {
-        overflow: hidden;
+      height: 100%;
+      overflow: hidden;
+      /deep/ .el-menu-vertical-demo.el-menu{
+        height: 100%;
+      }
+      .side-bar-logo {
+        height: 100px;
+        img {
+          position: relative;
+          top: 30%;
+          left: 30%;
+        }
       }
     }
   }
