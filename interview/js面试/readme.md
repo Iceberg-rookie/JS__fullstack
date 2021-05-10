@@ -78,3 +78,53 @@
   => true
 
 # 浏览器的Eventloop 和 Node中的区别
+
+# cookie,         localStorage, session, indexDB的区别
+  4K              5M            5M       无限大
+  携带在header中  
+  影响请求的性能
+
+cookie:
+  value: token
+  http-only: 不能通过js访问cookie
+  secure: 只能在https协议中携带
+  same-site: 浏览器不能在跨域请求中携带cookie
+
+# 怎么判断页面是否加载完成
+- Load 只要 onload() 执行，页面就一定加载了
+  load 事件触发代表着页面的DOM、CSS、JS、图片都全部加载完毕，load才会执行
+- DOMContentLoaded 事件的触发代表着html完全加载，就不需要等待CSS、JS、图片的加载完成了，它就会执行了
+
+# 跨域
+1. JSONP 原理就是利用 script 标签没有跨域限制的漏洞，通过 script 指向一个我们需要访问的地址，提供一个回调函数来接收我们的数据，把请求方式设置成 JSONP 的格式，有局限性(只能用于get请求)，通过 ajax 发起接口请求的话，浏览器就会判断请求的地址与你当前自己的服务是不是同源，那使用 script 标签去访问的话，它管你是不是同源，都能访问的到
+2. cors 用中间件 cors ，后端只要开启 cors 就可以实现跨域
+3. document.domain() 只能用于二级域名相同的情况下 a.test.com b.test.com
+  document.domain() = 'test.com' 在页面上加一个这个属性 那么这个域名下的接口请求就可以被跨域了
+4. postMessage 
+5. 代理 Nginx 
+
+# 浏览器缓存
+  缓存机制是为了降低资源的重复加载，提高整体页面的加载速度
+  - 强缓存：可以通过两种响应头来实现 Expires 和 Cache-Control ，表示在缓存期间不需要请求
+  - 协商缓存：Last-Modified (本地文件最后的修改日期), If-Modified-Sincel(把Last-Modified的值法给服务端)
+
+# Babel 原理
+Token - AST - 遍历AST - 生成新的代码
+
+# get 和 post 请求有什么区别
+1. 参数拼接
+2. get可以使用缓存，post不能使用缓存
+
+# 继承
+
+# js 事件流
+- 捕获
+- 触发
+- 冒泡
+
+# 如何让事件先冒泡、后捕获
+  监听捕获和冒泡、分别对应相应的处理函数，先暂停执行捕获事件，直到冒泡事件执行完毕再执行捕获
+
+# 事件委托
+
+# new 干了什么
