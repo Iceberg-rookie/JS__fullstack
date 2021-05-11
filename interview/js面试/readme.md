@@ -142,3 +142,8 @@ Token - AST - 遍历AST - 生成新的代码
 
 # once 函数
 - once.js
+
+# instanceof
+- instanceof.js
+
+# 闭包
