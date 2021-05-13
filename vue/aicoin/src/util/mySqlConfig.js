@@ -32,7 +32,7 @@ let allServices = {
 }
 
 // 比特币查询
-let showBtc = function(close, high, low) {
+let showBtc = function() {
   let _sql = `select * from btc`
   return allServices.query(_sql)
 }

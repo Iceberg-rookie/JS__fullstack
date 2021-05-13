@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div id="app">
     <div class="headWrapper">
       <el-menu
         :default-active="activeIndex2"
@@ -33,7 +33,7 @@
         </el-submenu>
       </el-menu>
     </div>
-    <div class="mainContainer">
+    <div class="container">
       <div class="sideBar">
         <div class="side-bar-logo">
           <img src="@/assets/img/logo.png" alt="" style="width: 40px" />
@@ -96,7 +96,9 @@
           </el-menu>
         </el-col>
       </div>
-      
+      <div class="main-container">
+
+      </div>
     </div>
   </div>
 </template>
@@ -136,26 +138,30 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.page {
+#app {
   width: 100vw;
   height: 100vh;
 }
-.headWrapper {
-  z-index: 998;
-  .el-menu-demo {
-    display: flex;
-    justify-content: flex-end;
+  .headWrapper {
+    z-index: 998;
+    overflow: hidden;
+    .el-menu-demo {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
-}
-.sideBar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  height: 100vh;
-  z-index: 999;
-  overflow: hidden;
-  // overflow-y: scroll;
+  .container {
+    width: 100vw;
+  }
+  .sideBar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    overflow: hidden;
+    // overflow-y: scroll;
   .side-bar-logo {
     height: 61px;
     background-color: rgb(84, 92, 100);
@@ -175,5 +181,9 @@ export default {
     border-right: hidden;
     height: 100%;
   }
-}
+  }
+  .main-container {
+    margin-left: 15em;
+    height: 90vh;
+  }
 </style>

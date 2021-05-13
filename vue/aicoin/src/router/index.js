@@ -29,6 +29,14 @@ const routes = [
       title: 'AICoin量化交易分析平台'
     }
   },
+  {
+    path: '/home/btc',
+    name: 'ShowBtc',
+    component: () => import('@/components/Btc'),
+    meta: {
+      title: 'AICoin量化交易分析平台'
+    }
+  },
 ]
 
 const router = new VueRouter({
