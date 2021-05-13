@@ -1,20 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '@/views/login/login'
-import Register from '@/views/register/register'
-import Home from '@/views/home/home'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/home',
-    name: 'home',
-    component: () => import('@/views/home/home'),
-    meta: {
-      title: 'AICoin量化交易分析平台'
-    }
-  },
   {
     path: '/',
     name: 'login',
@@ -29,6 +19,14 @@ const routes = [
     component: () => import('@/views/register/register'),
     meta: {
       title: '注册'
+    }
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: () => import('@/views/home/Home'),
+    meta: {
+      title: 'AICoin量化交易分析平台'
     }
   },
 ]
