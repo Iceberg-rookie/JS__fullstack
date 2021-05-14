@@ -143,7 +143,7 @@ export default {
   height: 100vh;
 }
   .headWrapper {
-    z-index: 998;
+    z-index: 999;
     overflow: hidden;
     .el-menu-demo {
       display: flex;
@@ -159,7 +159,7 @@ export default {
     bottom: 0;
     left: 0;
     height: 100vh;
-    z-index: 999;
+    z-index: 998;
     overflow: hidden;
     // overflow-y: scroll;
   .side-bar-logo {

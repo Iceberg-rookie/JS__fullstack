@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <Home/>
-    <div class="echart-container" ref="echartContainer">
+    <div class="showEchart">
+      <div class="echart-container" ref="echartContainer"></div>
     </div>
   </div>
 </template>
@@ -17,12 +18,20 @@ export default {
   components: {
     Home
   },
+  mounted() {
+    this.initEchart()
+  },
   methods: {
+    getdata() {
+      this.$http.post()
+        .then((res) => {
+          document.write(res.body);    
+        });
+    },
     initEchart () {
-      let dom = this.$refs.echartContainer
       // 基于准备好的dom，初始化echarts实例
-      var myChart = echarts.init(dom);
-      let app = {}, option = null
+      var myChart = echarts.init(this.$refs.echartContainer);
+      let option = null
 
       // 指定图表的配置项和数据
       option = {
@@ -52,12 +61,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.show {
+.showEchart{
   display: flex;
   margin-left: 15em;
+  height: 90vh;
+  margin-top: -90vh;
   .echart-container {
-    width: 100vw;
-    height: 50vh;
+    width: 85vw;
+    height: 90vh;
   }
 }
 </style>
