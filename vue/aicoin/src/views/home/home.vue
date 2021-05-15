@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <!-- 头部导航 -->
-    <topBar></topBar>
+    <TopBar></TopBar>
     <!-- 侧边导航 -->
-    <sideBar></sideBar>
+    <SideBar></SideBar>
+    <!-- 内容 -->
     <div class="main-container">
       <transition name="move" mode="out-in">
          <!--这里的router-view用来渲染子页面-->
@@ -14,8 +15,8 @@
 </template>
 
 <script>
-import sideBar from '@/components/Sidebar'
-import topBar from '@/components/Topbar'
+import TopBar from '@/components/TopBar'
+import SideBar from '@/components/SideBar'
 export default {
   data() {
     return {
@@ -23,8 +24,8 @@ export default {
     }
   },
   components:{
-    'sideBar': sideBar,
-    'topBar': topBar,
+    'TopBar': TopBar,
+    'SideBar': SideBar,
   },
   methods: {
   },
