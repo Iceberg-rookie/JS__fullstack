@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container">0</div>
+  <div id="button">add</div>
+
+  <script>
+    (function() {
+      let test
+      function watch(target, func) {
+        
+      }
+    })()
+
+    let button = document.getElementById('button')
+    let container = document.getElementById('contaainer')
+
+    let obj = {
+      value: 0
+    }
+    // 监听obj
+    let newObj = watch(obj, function(key, newValue) {
+      if (key === 'value') container.innerHTML = newValue
+    })
+
+    button.addEventListener('click', function() {
+      newObj.value += 1
+    })
+  </script>
+</body>
+</html>

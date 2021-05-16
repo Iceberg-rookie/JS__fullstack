@@ -97,7 +97,6 @@ export default {
   width: 100vw;
   height: 100vh;
   display: flex;
-  background-color: rgba(245, 245, 245);
 }
   .login-box {
     margin: auto;
