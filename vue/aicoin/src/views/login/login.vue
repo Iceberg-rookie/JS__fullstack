@@ -73,6 +73,7 @@
 </template>
 
 <script>
+import ribbon from '@/assets/js/ribbon'
 export default {
   data() {
     return {
@@ -86,7 +87,7 @@ export default {
   },
   methods: {
     doLogin() {
-      this.$router.push('/home')
+      this.$router.push({ path: '/home'})
     }
   },
 };

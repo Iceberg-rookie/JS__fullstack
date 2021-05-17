@@ -88,6 +88,7 @@
 </template>
 
 <script>
+import ribbon from '@/assets/js/ribbon'
 export default {
   data() {
     // 校验邮箱

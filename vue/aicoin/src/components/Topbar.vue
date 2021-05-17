@@ -18,17 +18,11 @@
           <el-menu-item index="3-1">选项1</el-menu-item>
           <el-menu-item index="3-2">选项2</el-menu-item>
           <el-menu-item index="3-3">选项3</el-menu-item>
-          <el-submenu index="3-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="3-4-1">选项1</el-menu-item>
-            <el-menu-item index="3-4-2">选项2</el-menu-item>
-            <el-menu-item index="3-4-3">选项3</el-menu-item>
-          </el-submenu>
         </el-submenu>
         <el-submenu index="4">
           <template slot="title">中文</template>
-          <el-menu-item index="4-1" @click="changeLang(zh)">中文</el-menu-item>
-          <el-menu-item index="4-2" @click="changeLang(en)">English</el-menu-item>
+          <el-menu-item index="4-1">中文</el-menu-item>
+          <el-menu-item index="4-2">English</el-menu-item>
         </el-submenu>
       </el-menu>
     </div>
