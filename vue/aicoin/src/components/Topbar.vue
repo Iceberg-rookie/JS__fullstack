@@ -1,56 +1,91 @@
 <template>
-  <div class="headWrapper">
-      <el-menu
-        :default-active="activeIndex2"
-        class="el-menu-demo"
-        mode="horizontal"
-        @select="handleSelect"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b"
-      >
-        <el-menu-item index="1">
-          <i class="el-icon-s-unfold"></i>
-        </el-menu-item>
-        <el-menu-item index="2">处理中心</el-menu-item>
-        <el-submenu index="3">
-          <template slot="title">我的工作台</template>
-          <el-menu-item index="3-1">选项1</el-menu-item>
-          <el-menu-item index="3-2">选项2</el-menu-item>
-          <el-menu-item index="3-3">选项3</el-menu-item>
-        </el-submenu>
-        <el-submenu index="4">
-          <template slot="title">中文</template>
-          <el-menu-item index="4-1">中文</el-menu-item>
-          <el-menu-item index="4-2">English</el-menu-item>
-        </el-submenu>
-      </el-menu>
+  <div class="topBar">
+    <div class="left-panel">
     </div>
+    <div class="right-panel">
+      <el-dropdown>
+        <span class="el-dropdown-link">
+          中文<i class="el-icon-arrow-down el-icon--right"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>中文</el-dropdown-item>
+          <el-dropdown-item>English</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <i class="el-icon-refresh-right" @click="refresh"></i>
+      <i class="el-icon-full-screen" @click="screen"></i>
+      <el-dropdown>
+        <el-avatar> user </el-avatar>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>个人中心</el-dropdown-item>
+          <el-dropdown-item>退出登录</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  data() { 
-    return {
-      activeIndex: "1",
-      activeIndex2: "1",
-    };
+  data()  {
+    return{
+      fullscreen: false,
+    }
   },
   methods: {
-    handleSelect(key, keyPath) {
-      // console.log(key, keyPath);
+    refresh() {
+      location.reload()
+    },
+    screen(){
+      let element = document.documentElement;
+      if (this.fullscreen) {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      } else {
+        if (element.requestFullscreen) {
+          element.requestFullscreen();
+        } else if (element.webkitRequestFullScreen) {
+          element.webkitRequestFullScreen();
+        } else if (element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+        } else if (element.msRequestFullscreen) {
+          // IE11
+          element.msRequestFullscreen();
+        }
+      }
+      this.fullscreen = !this.fullscreen;
     },
   }
 }
 </script>
 
 <style lang="less" scoped>
-.headWrapper {
+.topBar {
   z-index: 999;
   overflow: hidden;
-  .el-menu-demo {
-    display: flex;
-    justify-content: flex-end;
+  margin-left: 4em;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #EBEBEB;
+  .left-panel {
+    margin: 1em;
+  }
+  .right-panel {
+    margin: 1em;
+    i {
+      margin: 0.5em;
+      cursor: pointer;
+    }
+    .el-avatar {
+      cursor: pointer;
+    }
   }
 }
 </style>

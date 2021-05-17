@@ -6,16 +6,23 @@
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
-        background-color="#545c64"
+        background-color="#2F3447"
         text-color="#fff"
-        active-text-color="#ffd04b"
+        active-text-color="#409EFF"
         :router="true"
         :unique-opened="true"
+        :collapse="isCollapse"
       >
-        <div class="sideBar-logo">
-          <img src="@/assets/img/logo.png" alt="" />
-          <img src="@/assets/img/logoName.png" alt="" />
-        </div>
+        <el-menu-item class="sideBar-logo">
+          <el-radio-group v-model="isCollapse">
+            <i v-show="!isCollapse" class="el-icon-s-operation" @click="Collapse"></i>
+            <i v-show="isCollapse" class="el-icon-s-operation" @click="Collapse"></i>
+          </el-radio-group>
+        </el-menu-item>
+        <el-menu-item index="/home">
+          <i class="el-icon-s-home"></i>
+          <span>首页</span>
+        </el-menu-item>
         <el-submenu index="my">
           <template slot="title">
             <i class="el-icon-user"></i>
@@ -67,6 +74,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isCollapse: false
+    }
+  },
   methods: {
     handleSelect(key, keyPath) {
       // console.log(key, keyPath);
@@ -77,6 +89,9 @@ export default {
     handleClose(key, keyPath) {
       // console.log(key, keyPath);
     },
+    Collapse() {
+      this.isCollapse = !this.isCollapse
+    }
   },
 };
 </script>
@@ -90,15 +105,11 @@ export default {
   height: 100%;
   z-index: 998;
   overflow: hidden;
-  // overflow-y: scroll;
+  i {
+    color: #fff;
+  }
   .sideBar-logo {
-    height: 61px;
-    background-color: rgb(84, 92, 100);
-    display: flex;
-    align-items: center;
-    img {
-      height: 30px;
-    }
+    height: 65px;
   }
   /deep/ .el-col-12 {
     width: 15em;

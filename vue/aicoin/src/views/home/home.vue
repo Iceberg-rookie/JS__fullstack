@@ -38,7 +38,8 @@ export default {
   height: 100vh;
 }
   .main-container {
-    margin-left: 15em;
+    margin-left: 4em;
     height: 90vh;
+    background-color: #F0F2F5;
   }
 </style>

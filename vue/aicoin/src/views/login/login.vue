@@ -29,7 +29,7 @@
               >
             </div>
 
-            <el-button type="primary">登录</el-button>
+            <el-button type="primary"  @click="doLogin">登录</el-button>
 
             <div class="login-container_isbuttom2">
               <el-link type="primary" :underline="false" href="/register"
@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import ribbon from '@/assets/js/ribbon'
+import ribbon from "@/assets/js/ribbon";
 export default {
   data() {
     return {
@@ -87,8 +87,38 @@ export default {
   },
   methods: {
     doLogin() {
-      this.$router.push({ path: '/home'})
-    }
+      // this.$router.push({ path: '/home'})
+      const h = this.$createElement;
+      this.$msgbox({
+        title: "消息",
+        message: h("p", null, [
+          h("span", null, "内容可以是 "),
+          h("i", { style: "color: teal" }, "VNode"),
+        ]),
+        showCancelButton: true,
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        beforeClose: (action, instance, done) => {
+          if (action === "confirm") {
+            instance.confirmButtonLoading = true;
+            instance.confirmButtonText = "执行中...";
+            setTimeout(() => {
+              done();
+              setTimeout(() => {
+                instance.confirmButtonLoading = false;
+              }, 300);
+            }, 3000);
+          } else {
+            done();
+          }
+        },
+      }).then((action) => {
+        this.$message({
+          type: "info",
+          message: "action: " + action,
+        });
+      });
+    },
   },
 };
 </script>
@@ -99,75 +129,75 @@ export default {
   height: 100vh;
   display: flex;
 }
-  .login-box {
-    margin: auto;
-    width: 410px;
-    border: 1px solid #BBBBBB;
-    border-radius: 1em;
-    font-size: 12px;
-    background-color: rgba(243, 243, 243, 0.1);
+.login-box {
+  margin: auto;
+  width: 410px;
+  border: 1px solid #bbbbbb;
+  border-radius: 1em;
+  font-size: 12px;
+  background-color: rgba(243, 243, 243, 0.1);
+}
+.login-title {
+  margin: 1em auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
   }
-    .login-title {
-      margin: 1em auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img {
-        width: 24px;
-        height: 24px;
-        margin-right: 10px;
-        vertical-align:middle;
-      }
-      h3 {
-        display: inline;
-        vertical-align:middle;
-      }
-    }
-    .login-detail {
-      display: flex;
-      margin: 1em;
-      p {
-        text-indent: 2em;
-        line-height: 1.3em;
-        color: #BBBBBB;
-      }
-    }
-    .login-container {
-      /deep/ .el-tab-pane {
-        padding: 0.4em;
-      }
-      /deep/ .el-tabs__nav-scroll {
-        display: flex;
-        justify-content: center;
-      }
-      /deep/ .el-input {
-        margin: 0.8em 0 0.8em 0.4em;
-        width: 96%;
-      }
-      .login-container_isbuttom1 {
-        margin: 0.8em;
-        display: flex;
-        justify-content: space-between;
-      }
+  h3 {
+    display: inline;
+    vertical-align: middle;
+  }
+}
+.login-detail {
+  display: flex;
+  margin: 1em;
+  p {
+    text-indent: 2em;
+    line-height: 1.3em;
+    color: #bbbbbb;
+  }
+}
+.login-container {
+  /deep/ .el-tab-pane {
+    padding: 0.4em;
+  }
+  /deep/ .el-tabs__nav-scroll {
+    display: flex;
+    justify-content: center;
+  }
+  /deep/ .el-input {
+    margin: 0.8em 0 0.8em 0.4em;
+    width: 96%;
+  }
+  .login-container_isbuttom1 {
+    margin: 0.8em;
+    display: flex;
+    justify-content: space-between;
+  }
+  /deep/ .el-button {
+    margin: 0.8em;
+    width: 94%;
+  }
+  .login-container_isbuttom2 {
+    margin: 0.8em;
+    padding: 0 1em 0.4em 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .vcCode {
+    display: flex;
+    justify-content: space-between;
+    .getCode {
+      padding: 0.5em;
       /deep/ .el-button {
-        margin: 0.8em;
-        width: 94%;
-      }
-      .login-container_isbuttom2 {
-        margin: 0.8em;
-        padding: 0 1em 0.4em 0;
-        display: flex;
-        justify-content: flex-end;
-      }
-      .vcCode {
-        display: flex;
-        justify-content: space-between;
-        .getCode {
-          padding: 0.5em;
-          /deep/ .el-button {
-            margin: 0.4em 0.8em 0.4em 0.4em;
-          }
-        }
+        margin: 0.4em 0.8em 0.4em 0.4em;
       }
     }
+  }
+}
 </style>
