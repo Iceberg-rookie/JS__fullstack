@@ -355,9 +355,11 @@ export default {
 
 <style lang="less" scoped>
 .showEchart {
-  height: 91vh;
+  height: 100%;
+  width: 100%;
   overflow-y: scroll;
   .echart-container {
+    margin: 24px;
     width: 100%;
     height: 100%;
   }

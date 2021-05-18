@@ -15,7 +15,7 @@
       <i class="el-icon-refresh-right" @click="refresh"></i>
       <i class="el-icon-full-screen" @click="screen"></i>
       <el-dropdown>
-        <el-avatar> user </el-avatar>
+        <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" :size="36"></el-avatar>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>个人中心</el-dropdown-item>
           <el-dropdown-item>退出登录</el-dropdown-item>
@@ -33,9 +33,11 @@ export default {
     }
   },
   methods: {
+    // 刷新
     refresh() {
       location.reload()
     },
+    // 全屏
     screen(){
       let element = document.documentElement;
       if (this.fullscreen) {
@@ -70,21 +72,18 @@ export default {
 .topBar {
   z-index: 999;
   overflow: hidden;
-  margin-left: 4em;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #EBEBEB;
-  .left-panel {
-    margin: 1em;
-  }
+  background-color: #fff;
   .right-panel {
-    margin: 1em;
     i {
-      margin: 0.5em;
+      margin: 1em;
       cursor: pointer;
     }
     .el-avatar {
       cursor: pointer;
+      vertical-align: middle;
     }
   }
 }

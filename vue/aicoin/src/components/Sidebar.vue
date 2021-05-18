@@ -8,7 +8,7 @@
         @close="handleClose"
         background-color="#2F3447"
         text-color="#fff"
-        active-text-color="#409EFF"
+        active-text-color="#fff"
         :router="true"
         :unique-opened="true"
         :collapse="isCollapse"
@@ -29,8 +29,7 @@
             <span>我的</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="/home/personalMessage">个人信息</el-menu-item>
-            <el-menu-item index="/home/editMessage">修改信息</el-menu-item>
+            <el-menu-item index="/home/personalCenter">个人中心</el-menu-item>
             <el-menu-item index="/home/myOrders">我的订单</el-menu-item>
           </el-menu-item-group>
         </el-submenu>

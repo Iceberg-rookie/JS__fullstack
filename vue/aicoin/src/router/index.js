@@ -28,19 +28,10 @@ const routes = [
       title: 'AICoin量化交易分析平台'
     },
     children: [
-      // 个人信息
+      // 个人中心
       {
-        path: '/home/personalMessage',
-        name: 'personalMessage',
-        component: () => import('@/components/BTC-price'),
-        meta: {
-          title: 'AICoin量化交易分析平台'
-        }
-      },
-      // 修改信息
-      {
-        path: '/home/editMessage',
-        name: 'editMessage',
+        path: '/home/personalCenter',
+        name: 'personalCenter',
         component: () => import('@/components/BTC-price'),
         meta: {
           title: 'AICoin量化交易分析平台'
