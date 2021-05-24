@@ -359,9 +359,9 @@ export default {
   width: 100%;
   overflow-y: scroll;
   .echart-container {
-    margin: 24px;
-    width: 100%;
-    height: 100%;
+    margin-left: 15em;
+    width: 50em;
+    height: 50em;
   }
 }
 </style>

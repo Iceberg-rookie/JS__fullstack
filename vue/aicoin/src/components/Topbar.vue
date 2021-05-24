@@ -70,6 +70,7 @@ export default {
 
 <style lang="less" scoped>
 .topBar {
+  top: 0;
   z-index: 999;
   overflow: hidden;
   display: flex;
