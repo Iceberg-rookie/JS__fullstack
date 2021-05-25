@@ -12,7 +12,7 @@ const REJECTED = 'rejected'
 function myPromise(fn) {
   const that = this
   that.state = PENDING
-  that.value =null
+  that.value = null
   that.resolveCallbacks = []
 
   function resolve(value) {
