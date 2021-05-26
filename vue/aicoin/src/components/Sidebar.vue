@@ -15,8 +15,8 @@
       >
         <el-menu-item class="sideBar-logo">
           <el-radio-group v-model="isCollapse">
-            <i v-show="!isCollapse" class="el-icon-s-operation" @click="Collapse"></i>
-            <i v-show="isCollapse" class="el-icon-s-operation" @click="Collapse"></i>
+            <i v-if="!isCollapse" class="el-icon-s-operation" @click="Collapse"></i>
+            <i v-if="isCollapse" class="el-icon-s-operation" @click="Collapse"></i>
           </el-radio-group>
         </el-menu-item>
         <el-menu-item index="/home">

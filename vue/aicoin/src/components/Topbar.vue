@@ -5,11 +5,11 @@
     <div class="right-panel">
       <el-dropdown>
         <span class="el-dropdown-link">
-          中文<i class="el-icon-arrow-down el-icon--right"></i>
+          {{ language[0] }}<i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>中文</el-dropdown-item>
-          <el-dropdown-item>English</el-dropdown-item>
+          <el-dropdown-item>{{ language[0] }}</el-dropdown-item>
+          <el-dropdown-item>{{ language[1] }}</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
       <i class="el-icon-refresh-right" @click="refresh"></i>
@@ -29,6 +29,7 @@
 export default {
   data()  {
     return{
+      language: [ '中文', 'English'],
       fullscreen: false,
     }
   },
@@ -70,14 +71,15 @@ export default {
 
 <style lang="less" scoped>
 .topBar {
+  display: fixed;
   top: 0;
   z-index: 999;
   overflow: hidden;
-  display: flex;
-  justify-content: space-between;
   border-bottom: 1px solid #EBEBEB;
   background-color: #fff;
   .right-panel {
+    display: flex;
+    justify-content: flex-end;
     i {
       margin: 1em;
       cursor: pointer;
