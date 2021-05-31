@@ -355,13 +355,15 @@ export default {
 
 <style lang="less" scoped>
 .showEchart {
-  height: 100%;
-  width: 100%;
-  overflow-y: scroll;
+  position: relative;
+  display: flex;
+  flex: auto;
+  flex-direction: column;
   .echart-container {
+    top: 3em;
     margin-left: 15em;
-    width: 50em;
-    height: 50em;
+    width: 40em;
+    height: 40em;
   }
 }
 </style>

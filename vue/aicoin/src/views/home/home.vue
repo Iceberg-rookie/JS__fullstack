@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <!-- 侧边导航 -->
     <SideBar></SideBar>
     <!-- 内容 -->
@@ -33,9 +33,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
-#app {
-  width: 100vw;
-  height: 100vh;
-  background-color: #F0F2F5;
+.main-container {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
 }
 </style>

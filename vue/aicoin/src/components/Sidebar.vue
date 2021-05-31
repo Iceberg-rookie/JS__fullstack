@@ -102,7 +102,7 @@ export default {
   bottom: 0;
   left: 0;
   height: 100%;
-  z-index: 998;
+  z-index: 999;
   overflow: hidden;
   i {
     color: #fff;

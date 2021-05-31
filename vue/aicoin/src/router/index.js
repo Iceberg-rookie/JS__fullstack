@@ -32,7 +32,7 @@ const routes = [
       {
         path: '/home/personalCenter',
         name: 'personalCenter',
-        component: () => import('@/components/BTC-price'),
+        component: () => import('@/components/Personal'),
         meta: {
           title: 'AICoin量化交易分析平台'
         }

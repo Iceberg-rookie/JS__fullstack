@@ -71,10 +71,11 @@ export default {
 
 <style lang="less" scoped>
 .topBar {
-  display: fixed;
+  position: fixed;
   top: 0;
-  z-index: 999;
-  overflow: hidden;
+  right: 0;
+  z-index: 998;
+  width: 100%;
   border-bottom: 1px solid #EBEBEB;
   background-color: #fff;
   .right-panel {
