@@ -1,13 +1,12 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+    <router-view />
 </template>
 
-<style lang="less">
-#app {
-  width: 100vw;
-  height: 100vh;
-  background-color: #F0F2F5;
-}
+<script>
+export default {};
+</script>
+
+<style>
+@import "./assets/css/main.css";
+@import "./assets/css/color-dark.css";
 </style>

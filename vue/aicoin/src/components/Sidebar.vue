@@ -1,123 +1,167 @@
 <template>
-  <div class="sideBar">
-    <el-col :span="12">
-      <el-menu
-        :default-active="this.$route.path"
-        class="el-menu-vertical-demo"
-        @open="handleOpen"
-        @close="handleClose"
-        background-color="#2F3447"
-        text-color="#fff"
-        active-text-color="#fff"
-        :router="true"
-        :unique-opened="true"
-        :collapse="isCollapse"
-      >
-        <el-menu-item class="sideBar-logo">
-          <el-radio-group v-model="isCollapse">
-            <i v-show="!isCollapse" class="el-icon-s-operation" @click="Collapse"></i>
-            <i v-show="isCollapse" class="el-icon-s-operation" @click="Collapse"></i>
-          </el-radio-group>
-        </el-menu-item>
-        <el-menu-item index="/home">
-          <i class="el-icon-s-home"></i>
-          <span>首页</span>
-        </el-menu-item>
-        <el-submenu index="my">
-          <template slot="title">
-            <i class="el-icon-user"></i>
-            <span>我的</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="/home/personalCenter">个人中心</el-menu-item>
-            <el-menu-item index="/home/myOrders">我的订单</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-submenu index="price forecasting">
-          <template slot="title">
-            <i class="el-icon-data-line"></i>
-            <span>价格预测</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="/home/Bitcoin">比特币</el-menu-item>
-            <el-menu-item index="/home/Litecoin">莱特币</el-menu-item>
-            <el-menu-item index="/home/Dogecoin">狗狗币</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-submenu index="robot">
-          <template slot="title">
-            <i class="el-icon-s-check"></i>
-            <span>量化机器人</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="/home/trading-strategy">交易策略</el-menu-item>
-            <el-menu-item index="/home/trading-record">交易记录</el-menu-item>
-            <el-menu-item index="/home/robots">机器人列表</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-submenu index="data display">
-          <template slot="title">
-            <i class="el-icon-data-analysis"></i>
-            <span>数据展示</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="/home/Bitcoin-price">比特币价格</el-menu-item>
-            <el-menu-item index="/home/Litecoin-price">莱特币价格</el-menu-item>
-            <el-menu-item index="/home/Dogecoin-price">狗狗币价格</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-      </el-menu>
-    </el-col>
-  </div>
+    <div class="sidebar">
+        <el-menu
+            class="sidebar-el-menu"
+            :default-active="onRoutes"
+            :collapse="collapse"
+            background-color="#324157"
+            text-color="#bfcbd9"
+            active-text-color="#20a0ff"
+            unique-opened
+            router
+        >
+            <template v-for="item in items">
+                <template v-if="item.subs">
+                    <el-submenu :index="item.index" :key="item.index">
+                        <template #title>
+                            <i :class="item.icon"></i>
+                            <span>{{ item.title }}</span>
+                        </template>
+                        <template v-for="subItem in item.subs">
+                            <el-submenu
+                                v-if="subItem.subs"
+                                :index="subItem.index"
+                                :key="subItem.index"
+                            >
+                                <template #title>{{ subItem.title }}</template>
+                                <el-menu-item
+                                    v-for="(threeItem, i) in subItem.subs"
+                                    :key="i"
+                                    :index="threeItem.index"
+                                >{{ threeItem.title }}</el-menu-item>
+                            </el-submenu>
+                            <el-menu-item
+                                v-else
+                                :index="subItem.index"
+                                :key="subItem.index"
+                            >{{ subItem.title }}</el-menu-item>
+                        </template>
+                    </el-submenu>
+                </template>
+                <template v-else>
+                    <el-menu-item :index="item.index" :key="item.index">
+                        <i :class="item.icon"></i>
+                        <template #title>{{ item.title }}</template>
+                    </el-menu-item>
+                </template>
+            </template>
+        </el-menu>
+    </div>
 </template>
 
 <script>
+// import bus from "../common/bus";
 export default {
-  data() {
-    return {
-      isCollapse: false
+    data() {
+        return {
+            items: [
+                {
+                    icon: "el-icon-lx-home",
+                    index: "dashboard",
+                    title: "系统首页"
+                },
+                {
+                    icon: "el-icon-lx-people",
+                    index: "personal",
+                    title: "个人中心",
+                    subs: [
+                        {
+                            index: "settings",
+                            title: "个人设置"
+                        },
+                        {
+                            index: "orders",
+                            title: "我的订单"
+                        }
+                    ]
+                },
+                {
+                    icon: "el-icon-data-line",
+                    index: "forecasting",
+                    title: "价格预测",
+                    subs: [
+                        {
+                            index: "Bitcoin",
+                            title: "比特币"
+                        },
+                        {
+                            index: "Litecoin",
+                            title: "莱特币"
+                        },
+                        {
+                            index: "Dogecoin",
+                            title: "狗狗币"
+                        }
+                    ]
+                },
+                {
+                    icon: "el-icon-lx-service",
+                    index: "robot",
+                    title: "量化机器人",
+                    subs: [
+                        {
+                            index: "trading-strategy",
+                            title: "交易策略"
+                        },
+                        {
+                            index: "trading-record",
+                            title: "交易记录"
+                        },
+                        {
+                            index: "robots",
+                            title: "机器人列表"
+                        }
+                    ]
+                },
+                {
+                    icon: "el-icon-data-analysis",
+                    index: "dataShow",
+                    title: "数据展示",
+                    subs: [
+                        {
+                            index: "Bitcoin-price",
+                            title: "比特币价格"
+                        },
+                        {
+                            index: "Litecoin-price",
+                            title: "莱特币价格"
+                        },
+                        {
+                            index: "Dogecoin-price",
+                            title: "狗狗币价格"
+                        }
+                    ]
+                },
+            ]
+        };
+    },
+    computed: {
+        onRoutes() {
+            return this.$route.path.replace("/", "");
+        },
+        collapse(){
+            return this.$store.state.collapse
+        }
     }
-  },
-  methods: {
-    handleSelect(key, keyPath) {
-      // console.log(key, keyPath);
-    },
-    handleOpen(key, keyPath) {
-      // console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      // console.log(key, keyPath);
-    },
-    Collapse() {
-      this.isCollapse = !this.isCollapse
-    }
-  },
 };
 </script>
 
-<style  lang="less" scoped>
-.sideBar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  z-index: 999;
-  overflow: hidden;
-  i {
-    color: #fff;
-  }
-  .sideBar-logo {
-    height: 65px;
-  }
-  /deep/ .el-col-12 {
-    width: 15em;
+<style scoped>
+.sidebar {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    overflow-y: scroll;
+}
+.sidebar::-webkit-scrollbar {
+    width: 0;
+}
+.sidebar-el-menu:not(.el-menu--collapse) {
+    width: 250px;
+}
+.sidebar > ul {
     height: 100%;
-    overflow: hidden;
-  }
-  /deep/ .el-menu {
-    border-right: hidden;
-    height: 100%;
-  }
 }
 </style>

@@ -1,17 +1,9 @@
 <template>
-  <div class="page">
+  <div class="register-wrap">
     <div class="register-box">
       <div class="register-title">
-        <i><img src="./../../assets/img/logo.png" alt="" /></i>
-        <h3>AIcoin量化交易分析平台</h3>
-      </div>
-      <div class="register-detail">
-        <p>
-          AICoin是一个数字货币量化分析与交易的平台，致力于帮助交易者分析数字货币价格走向，
-          利用各种金融指标和Al技术进行走势预测，并对接交易所进行程序化交易。
-          是一个数字货币量化分析与交易的平台，致力于帮助交易者分析数字货币价格走向，
-          利用各种金融指标和Al技术进行走势预测，并对接交易所进行程序化交易。
-        </p>
+        <!-- <i><img src="./../assets/img/logo.png" alt="" /></i> -->
+        <div>AIcoin量化交易分析平台</div>
       </div>
       <div class="register-container">
         <el-form
@@ -22,9 +14,6 @@
           label-width="100px"
           class="demo-ruleForm"
         >
-          <el-form-item>
-            <span>注册</span>
-          </el-form-item>
           <el-form-item prop="email">
             <el-input
               type="email"
@@ -58,7 +47,7 @@
             ></el-input>
           </el-form-item>
           <div class="vcCode">
-            <el-form-item prop="identifyCode">
+            <el-form-item prop="identifyCode" style="margin-left: 0">
               <el-input
                 type="identifyCode"
                 v-model="ruleForm.identifyCode"
@@ -74,10 +63,11 @@
             </el-form-item>
           </div>
           <el-form-item prop="register">
-            <el-button type="primary" @click="register('ruleForm')"
-              >注册</el-button
-            >
-            <el-link type="primary" :underline="false" href="/"
+            <div class="register-btn">
+              <el-button type="primary" @click="register('ruleForm')">注册</el-button>
+            </div>
+            
+            <el-link type="primary" :underline="false" href="/login"
               >使用已有账户登录</el-link
             >
           </el-form-item>
@@ -88,7 +78,6 @@
 </template>
 
 <script>
-import ribbon from '@/assets/js/ribbon'
 export default {
   data() {
     // 校验邮箱
@@ -97,7 +86,7 @@ export default {
         return callback(new Error("请输入邮箱地址"));
       }
       // 验证邮箱的正则表达式
-      const regEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+      const regEmail = /^([a-zA-Z]|[0-9])(\w)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/
 
       if (regEmail.test(value)) {
         // 合法的邮箱
@@ -187,84 +176,47 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-.page {
-  width: 100vw;
-  height: 100vh;
+<style scoped>
+.register-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/img/login-bg.jpg);
+  background-size: 100%;
   display: flex;
 }
 .register-box {
   margin: auto;
   width: 410px;
-  // border: 1px solid #bbbbbb;
-  border-radius: 1em;
+  border-radius: 5px;
   font-size: 12px;
-  background-color: rgba(243, 243, 243, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 .register-title {
-  margin: 1em auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    vertical-align: middle;
-  }
-  h3 {
-    display: inline;
-    vertical-align: middle;
-  }
-}
-.register-detail {
-  display: flex;
-  margin: 1em;
-  p {
-    text-indent: 2em;
-    line-height: 1.3em;
-    color: #bbbbbb;
-  }
+  width: 100%;
+  line-height: 50px;
+  text-align: center;
+  font-size: 20px;
+  color: #000;
+  border-bottom: 1px solid #ddd;
 }
 .register-container {
-  /deep/ .el-form-item {
-    margin-bottom: 0;
-  }
-  /deep/ .el-form-item__content {
-    margin-left: 0 !important;
-    display: block;
-    span {
-      padding-left: 0.8em;
-    }
-  }
-  /deep/ .el-form-item__error {
-    position: relative;
-    left: 0.8em;
-    padding-top: 0;
-  }
-  /deep/ .el-input {
-    margin: 0.8em;
-    width: 94%;
-  }
-  .register-container_isbuttom1 {
-    margin: 0.8em;
-    display: flex;
-    justify-content: space-between;
-  }
-  /deep/ .el-button {
-    margin: 0.8em;
-    width: 94%;
-  }
-  .vcCode {
-    display: flex;
-    justify-content: space-between;
-    /deep/ .el-input {
-      box-sizing:border-box;
-      width: 100%;
-    }
-    .getCode {
-      padding-right: 1em;
-    }
-  }
+  padding: 30px 30px;
+}
+/deep/ .el-form-item__content {
+  margin-left: 0 !important;
+}
+.vcCode {
+  display: flex;
+  justify-content: space-between;
+}
+/deep/ .el-input {
+  box-sizing:border-box;
+  width: 100%;
+}
+/deep/ .el-button {
+  display: block;
+  width: 100%;
+  height: 36px;
 }
 </style>
